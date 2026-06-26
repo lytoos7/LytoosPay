@@ -69,21 +69,14 @@ async function loadProdukDariFirebase() {
 }
 
 // ==========================================
-// MESIN TRANSAKSI (MENEMBAK DIGIFLAZZ)
+// MESIN TRANSAKSI (RADAR PENDETEKSI)
 // ==========================================
 window.beliProduk = async function(sku, namaProduk) {
-    // 1. Minta nomor HP ke pembeli
     const tujuan = prompt(`Masukkan Nomor HP Tujuan untuk pembelian:\n${namaProduk}`);
-    
-    // Jika pembeli klik batal atau tidak mengisi
-    if (!tujuan) {
-        return; 
-    }
+    if (!tujuan) return; 
 
-    // 2. Beri tahu pembeli bahwa sistem sedang bekerja
-    alert("Sedang memproses transaksi ke server... Mohon tunggu sebentar.");
+    alert("Sistem sedang menghubungi server... Klik OK dan tunggu beberapa detik.");
 
-    // 3. Tembak data ke Google Apps Script
     try {
         const response = await fetch(API_URL, {
             method: "POST",
@@ -96,18 +89,23 @@ window.beliProduk = async function(sku, namaProduk) {
             })
         });
 
-        const hasil = await response.json();
+        // Kita tangkap jawabannya sebagai teks biasa dulu agar tidak error
+        const textHasil = await response.text(); 
         
-        // 4. Tampilkan balasan dari Digiflazz ke layar HP Pembeli
-        if (hasil && hasil.data) {
-            // Ini akan memunculkan balasan asli dari Digiflazz (contoh: "Saldo Tidak Cukup")
-            alert(`Status Transaksi:\n${hasil.data.message}`);
-        } else {
-            alert(`Pesan Sistem:\n${JSON.stringify(hasil)}`);
+        try {
+            const jsonHasil = JSON.parse(textHasil);
+            if (jsonHasil && jsonHasil.data) {
+                alert(`STATUS TRANSAKSI:\n${jsonHasil.data.message}`);
+            } else {
+                alert(`RESPONS SERVER:\n${JSON.stringify(jsonHasil)}`);
+            }
+        } catch (e) {
+            // Jika server mengembalikan error HTML (bukan JSON)
+            alert(`SISTEM DITOLAK:\nJawaban asli dari server bukan format data yang benar. Cek console.`);
+            console.error("Isi penolakan server:", textHasil);
         }
         
     } catch (error) {
-        console.error("Error Transaksi:", error);
-        alert("Terjadi kesalahan jaringan. Gagal menghubungi Brankas Server.");
+        alert(`ERROR JARINGAN/KEAMANAN:\n${error.message}\nPastikan Apps Script diset 'Anyone'.`);
     }
 }
