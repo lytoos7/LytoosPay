@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 // URL Brankas Rahasia Apps Script Anda
-const API_URL = "https://script.google.com/macros/s/AKfycbyawrjcfIRfr2Ch4WBIwhx2E-iUwG_Z3lcG79mjv574boopSURi_WgMsR3D26uYCZEY/exec";
+const API_URL = "https://hook.us2.make.com/scdxdwe5al68v5m31f7bacwgk3ao2x1o";
 
 // Menyalakan Mesin Firebase & Database
 const app = initializeApp(firebaseConfig);
