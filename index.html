@@ -240,11 +240,11 @@
         <div class="section-title"><i class="fa-solid fa-bolt"></i> Isi Ulang & Tagihan</div>
         <div class="menu-grid">
             <div class="menu-item" onclick="bukaNavBertingkat('pulsa')">
-                <div class="icon-box c-1"><i class="fa-solid fa-phone"></i></div>
+                <div class="icon-box"><img src="icon-pulsa.png" alt="Pulsa" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3616/3616230.png'"></div>
                 <span>Pulsa</span>
             </div>
             <div class="menu-item" onclick="bukaNavBertingkat('internet')">
-                <div class="icon-box c-2"><i class="fa-solid fa-globe"></i></div>
+                <div class="icon-box"><img src="icon-internet.png" alt="Data" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2885/2885422.png'"></div>
                 <span>Paket Internet</span>
             </div>
             <div class="menu-item" onclick="bukaNavBertingkat('telpon')">
@@ -555,15 +555,13 @@
         document.getElementById('page-form-nominal').classList.add("active");
         document.getElementById('form-nominal-title').innerText = providerName;
 
+        // KODE BARU: Sapu bersih kolom nomor HP setiap kali masuk form!
+        document.getElementById('global-input-tujuan').value = "";
+
         // Tampilkan Radio Opsi Pilihan Hanya Jika Memilih Provider Telkomsel
         let radioWrapper = document.getElementById('wrapper-radio-opsi');
-        if(providerId === 'telkomsel') {
-            radioWrapper.style.display = "block";
-        } else {
-            radioWrapper.style.display = "none";
-        }
-
-        // Jalankan Query Pengambilan Produk Sebenarnya dari Firestore
+        radioWrapper.style.display = (providerId === 'telkomsel') ? "block" : "none";
+        
         muatDaftarNominalFirestore(currentSelectedCategory, providerId);
     }
 
@@ -575,6 +573,9 @@
         document.getElementById('page-form-nominal').classList.add("active");
         document.getElementById('form-nominal-title').innerText = title;
         document.getElementById('wrapper-radio-opsi').style.display = "none";
+
+        // KODE BARU: Sapu bersih kolom nomor HP setiap kali masuk form!
+        document.getElementById('global-input-tujuan').value = "";
         
         muatDaftarNominalFirestore(kategori, provider);
     }
