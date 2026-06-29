@@ -244,7 +244,9 @@
                 <span>Pulsa</span>
             </div>
             <div class="menu-item" onclick="bukaNavBertingkat('internet')">
-                <div class="icon-box"><img src="icon-internet.png" alt="Data" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2885/2885422.png'"></div>
+                <div class="icon-box">
+                    <img src="icon-internet.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;">
+                </div>
                 <span>Paket Internet</span>
             </div>
             <div class="menu-item" onclick="bukaNavBertingkat('telpon')">
@@ -462,8 +464,8 @@
             { id: 'tri', name: 'Tri Hutchison', desc: 'Pulsa Masa Aktif Panjang', icon: 'fa-sim-card', color: '#e64980' },
             { id: 'smartfren', name: 'Smartfren', desc: 'Pulsa Data Smartfren', icon: 'fa-sim-card', color: '#fcc419' }
         ]},
-        'internet': { title: 'Paket Data Internet', items: [
-            { id: 'telkomsel_data', name: 'Paket Data Telkomsel', desc: 'Internet Flash / OmG', icon: 'fa-globe', color: '#f03e3e' },
+        'internet': { title: 'Pilih Paket Data Internet', items: [
+            { id: 'telkomsel_data', name: 'Paket Data Telkomsel', desc: 'Internet Flash / OmG', img: 'logo-telkomsel-data.png' },
             { id: 'xl_data', name: 'Paket Data XL', desc: 'Xtra Combo Flex', icon: 'fa-globe', color: '#10b1b1' },
             { id: 'axis_data', name: 'Paket Data Axis', desc: 'Bronet Kuota Irit', icon: 'fa-globe', color: '#7048e8' }
         ]},
