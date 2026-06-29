@@ -3,153 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LytoosPay - Pembayaran Digital Nasional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>LytoosPay</title>
     <style>
-        /* DESAIN PREMIUM LYTOOSPAY */
-        :root {
-            --primary: #0a4275; /* Biru Gelap Premium */
-            --accent: #f39c12; /* Emas Elegan */
-            --bg: #f4f7f6;
-            --surface: #ffffff;
-            --text-main: #2d3436;
-            --text-muted: #636e72;
-            --radius: 20px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text-main); display: flex; justify-content: center; }
+        /* TAMPILAN GAYA MINIMALIS MODERN STYLE */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+        .app-container { max-width: 450px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+        .header { background: #6f42c1; color: white; padding: 20px; text-align: center; font-weight: bold; font-size: 20px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 20px; }
+        .menu-item { text-align: center; cursor: pointer; background: #fff; padding: 10px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .menu-item img { width: 40px; height: 40px; margin-bottom: 5px; }
+        .menu-item span { display: block; font-size: 12px; font-weight: 500; }
         
-        .app-container {
-            width: 100%; max-width: 480px; min-height: 100vh;
-            background: var(--surface); position: relative;
-            box-shadow: 0 0 40px rgba(0,0,0,0.05); overflow-x: hidden;
-        }
-
-        /* HEADER & SALDO CARD */
-        .header-section {
-            background: linear-gradient(135deg, var(--primary), #105b9e);
-            padding: 30px 20px 60px 20px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
-            color: white; position: relative;
-        }
-        .app-title { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
-        .app-title i { color: var(--accent); }
+        /* HALAMAN TRANSAKSI (TERSEMBUNYI DI AWAL) */
+        .page { display: none; padding: 20px; }
+        .page.active { display: block; }
+        .btn-back { background: #e2e6ea; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 15px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group input { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        .provider-badge { display: inline-block; background: #e2d9f3; color: #6f42c1; padding: 5px 10px; border-radius: 5px; font-size: 12px; margin-top: 5px; font-weight: bold; }
         
-        .balance-card {
-            background: white; border-radius: var(--radius);
-            padding: 25px; margin: -40px 20px 20px 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center;
-        }
-        .balance-info p { color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
-        .balance-info h2 { color: var(--primary); font-size: 28px; font-weight: 800; margin-top: 5px; }
-        .btn-topup {
-            background: var(--accent); color: white; border: none;
-            padding: 12px 20px; border-radius: 12px; font-weight: 700;
-            font-size: 14px; cursor: pointer; transition: 0.3s;
-        }
-        .btn-topup:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(243, 156, 18, 0.3); }
-
-        /* MENU KATEGORI */
-        .menu-section { padding: 10px 20px; }
-        .menu-title { font-size: 16px; font-weight: 700; margin-bottom: 15px; color: var(--text-main); }
-        .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; }
-        .menu-item { cursor: pointer; transition: 0.2s; }
-        .menu-item:hover { transform: scale(1.05); }
-        .menu-icon {
-            width: 55px; height: 55px; background: var(--bg);
-            border-radius: 18px; display: flex; justify-content: center; align-items: center;
-            margin: 0 auto 8px auto; font-size: 24px; color: var(--primary);
-        }
-        .menu-item p { font-size: 12px; font-weight: 600; color: var(--text-muted); }
-
-        /* AREA PRODUK */
-        .product-area { padding: 20px; }
-        .product-card {
-            background: white; border: 1px solid #f0f0f0; border-radius: 16px;
-            padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: 0.2s;
-        }
-        .product-card:hover { border-color: var(--primary); }
-        .prod-detail h4 { font-size: 16px; color: var(--text-main); margin-bottom: 4px; }
-        .prod-detail p { font-size: 12px; color: var(--text-muted); }
-        .prod-price { font-size: 16px; font-weight: 800; color: var(--primary); }
-        .btn-buy {
-            background: var(--primary); color: white; border: none;
-            padding: 8px 15px; border-radius: 8px; font-weight: 600;
-            margin-top: 8px; cursor: pointer; width: 100%;
-        }
-
-        /* SPLASH SCREEN ELEGAN */
-        #splash {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--primary); z-index: 9999;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; transition: opacity 0.6s ease;
-        }
-        .splash-title { font-size: 32px; font-weight: 800; margin-top: 15px; letter-spacing: 1px; }
-        .splash-title span { color: var(--accent); }
+        /* DAFTAR PRODUK NOMINAL */
+        .product-list { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 15px; }
+        .product-card { border: 1px solid #dee2e6; padding: 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: #fff; }
+        .product-card:hover { border-color: #6f42c1; background: #f8f9fa; }
+        .product-name { font-weight: bold; color: #333; margin-bottom: 5px; }
+        .product-price { color: #28a745; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <!-- Splash Screen -->
-    <div id="splash">
-        <i class="fa-solid fa-wallet" style="font-size: 60px; color: var(--accent);"></i>
-        <div class="splash-title">Lytoos<span>Pay</span></div>
-        <p style="opacity: 0.8; margin-top: 5px;">Memuat Database Nasional...</p>
-    </div>
+<div class="app-container">
+    <!-- HEADER UTAMA -->
+    <div class="header" id="app-title">LytoosPay</div>
 
-    <div class="app-container">
-        <!-- Header -->
-        <div class="header-section">
-            <div class="app-title"><i class="fa-solid fa-bolt"></i> LytoosPay</div>
-            <p style="margin-top: 5px; opacity: 0.9; font-size: 14px;">Transaksi Cepat, Aman, Terpercaya</p>
-        </div>
-
-        <!-- Kartu Saldo (Nanti dihubungkan ke Firebase/User Auth) -->
-        <div class="balance-card">
-            <div class="balance-info">
-                <p>Saldo Aktif</p>
-                <h2>Rp 0</h2>
+    <!-- 1. HALAMAN UTAMA (MENU DASHBOARD) -->
+    <div id="page-home" class="page active">
+        <div class="menu-grid">
+            <div class="menu-item" onclick="bukaHalaman('pulsa', 'Beli Pulsa Prabayar')">
+                <img src="https://cdn-icons-png.flaticon.com/512/3616/3616230.png" alt="Pulsa">
+                <span>Pulsa</span>
             </div>
-            <button class="btn-topup"><i class="fa-solid fa-plus"></i> Isi Saldo</button>
-        </div>
-
-        <!-- Menu Utama -->
-        <div class="menu-section">
-            <h3 class="menu-title">Layanan Nasional</h3>
-            <div class="menu-grid">
-                <div class="menu-item" onclick="filterKategori('Pulsa')">
-                    <div class="menu-icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <p>Pulsa</p>
-                </div>
-                <div class="menu-item" onclick="filterKategori('Data')">
-                    <div class="menu-icon"><i class="fa-solid fa-globe"></i></div>
-                    <p>Data</p>
-                </div>
-                <div class="menu-item" onclick="filterKategori('E-Wallet')">
-                    <div class="menu-icon"><i class="fa-solid fa-wallet"></i></div>
-                    <p>E-Wallet</p>
-                </div>
-                <div class="menu-item" onclick="filterKategori('PLN')">
-                    <div class="menu-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                    <p>PLN</p>
-                </div>
+            <div class="menu-item" onclick="bukaHalaman('data', 'Paket Data Internet')">
+                <img src="https://cdn-icons-png.flaticon.com/512/2885/2885422.png" alt="Data">
+                <span>Data</span>
+            </div>
+            <div class="menu-item" onclick="bukaHalaman('ewallet', 'Top Up E-Wallet')">
+                <img src="https://cdn-icons-png.flaticon.com/512/4731/4731110.png" alt="E-Wallet">
+                <span>E-Wallet</span>
+            </div>
+            <div class="menu-item" onclick="bukaHalaman('pln', 'Token Listrik PLN')">
+                <img src="https://cdn-icons-png.flaticon.com/512/3104/3104844.png" alt="PLN">
+                <span>PLN</span>
             </div>
         </div>
-
-        <!-- Daftar Produk -->
-        <div class="product-area">
-            <h3 class="menu-title" id="judulProduk">Rekomendasi Produk</h3>
-            <div id="listProduk">
-                <p style="text-align:center; color:#636e72; font-size: 14px;"><i class="fa-solid fa-spinner fa-spin"></i> Sinkronisasi dengan Firebase...</p>
-            </div>
+        
+        <!-- TOMBOL ISI SALDO -->
+        <div style="padding: 0 20px; margin-top: 20px;">
+            <button onclick="bukaHalaman('saldo', 'Isi Saldo Akun')" style="width:100%; padding: 15px; background: #28a745; color:white; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">
+                ➕ Isi Saldo / Top Up Akun
+            </button>
         </div>
     </div>
 
-    <!-- Panggil File Javascript sebagai Module (Syarat Wajib Firebase v9+) -->
-    <script type="module" src="./script.js"></script>
+    <!-- 2. HALAMAN TRANSAKSI DINAMIS -->
+    <div id="page-transaksi" class="page">
+        <button class="btn-back" onclick="kembaliKeHome()">⬅️ Kembali</button>
+        <h3 id="transaksi-title">Menu Transaksi</h3>
+        
+        <div class="input-group">
+            <label id="label-tujuan" style="display:block; margin-bottom:5px; font-weight:500;">Masukkan Nomor Tujuan:</label>
+            <input type="text" id="input-tujuan" placeholder="Contoh: 0821xxxx" oninput="prosesInputTujuan()">
+            <div id="provider-info" class="provider-badge" style="display:none;">Provider: Mendeteksi...</div>
+        </div>
+
+        <div id="loading-produk" style="display:none; text-align:center; padding: 20px; font-weight: bold; color: #6f42c1;">Mencari produk...</div>
+        <div class="product-list" id="daftar-produk">
+            <!-- Daftar produk otomatis muncul di sini dari Firestore -->
+        </div>
+    </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- BAGIAN 1: PENGATURAN FIREBASE (WAJIB ANDA ISI!) -->
+<!-- ========================================================== -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script>
+  // SILAKAN ISI DENGAN KUNCI DARI FIREBASE CONSOLE ANDA:
+  var firebaseConfig = {
+    apiKey: "AIzaSyD5OAu-ytGL26g1iHrBfNqY8mm2zB2Sphg",
+    authDomain: "lytoospay-66a22.firebaseapp.com",
+    projectId: "lytoospay-66a22",
+    storageBucket: "lytoospay-66a22.firebasestorage.app",
+    messagingSenderId: "143149599518",
+    appId: "1:143149599518:web:828b8dcf8a1a77cd75970f"
+  };
+  
+  // Menyalakan Firebase
+  if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.firestore();
+</script>
+
+<!-- ========================================================== -->
+<!-- BAGIAN 2: LOGIKA TAMPILAN & JEMBATAN TRANSAKSI -->
+<!-- ========================================================== -->
+<script>
+    let kategoriAktif = "";
+
+    // FUNGSI 1: PINDAH HALAMAN
+    function bukaHalaman(kategori, judul) {
+        kategoriAktif = kategori;
+        document.getElementById("page-home").classList.remove("active");
+        document.getElementById("page-transaksi").classList.add("active");
+        document.getElementById("transaksi-title").innerText = judul;
+        
+        // Reset form
+        document.getElementById("input-tujuan").value = "";
+        document.getElementById("provider-info").style.display = "none";
+        document.getElementById("daftar-produk").innerHTML = "";
+
+        if(kategori === 'pln') {
+            document.getElementById("label-tujuan").innerText = "Masukkan Nomor Meteran / ID Pelanggan:";
+            document.getElementById("input-tujuan").placeholder = "Contoh: 140xxxxxx";
+            ambilProdukDariFirestore('pln', 'pln'); // Langsung sedot data PLN
+        } else if(kategori === 'ewallet') {
+            document.getElementById("label-tujuan").innerText = "Masukkan Nomor E-Wallet / HP Tujuan:";
+            document.getElementById("input-tujuan").placeholder = "Contoh: 08xxxxxx";
+            // Catatan: Jika E-Wallet butuh deteksi provider (misal DANA, OVO), Anda bisa sesuaikan nanti.
+            // Sementara kita tampilkan semua e-wallet
+            ambilProdukDariFirestore('ewallet', 'ewallet'); 
+        } else if(kategori === 'saldo') {
+            document.getElementById("label-tujuan").innerText = "Masukkan Jumlah Isi Saldo (Rp):";
+            document.getElementById("input-tujuan").placeholder = "Contoh: 50000";
+            document.getElementById("daftar-produk").innerHTML = "<div class='product-card' onclick='alert(\"Silakan transfer ke rekening admin untuk isi saldo.\")'><div class='product-name'>Klik untuk Konfirmasi</div></div>";
+        } else {
+            document.getElementById("label-tujuan").innerText = "Masukkan Nomor HP Tujuan:";
+            document.getElementById("input-tujuan").placeholder = "Contoh: 0821xxxxxxx";
+        }
+    }
+
+    function kembaliKeHome() {
+        document.getElementById("page-transaksi").classList.remove("active");
+        document.getElementById("page-home").classList.add("active");
+    }
+
+    // FUNGSI 2: DETEKSI PROVIDER OTOMATIS (KHUSUS PULSA & DATA)
+    function prosesInputTujuan() {
+        if (kategoriAktif !== 'pulsa' && kategoriAktif !== 'data') return;
+
+        let noHP = document.getElementById("input-tujuan").value;
+        let badge = document.getElementById("provider-info");
+
+        // Deteksi mulai jalan kalau nomor sudah diketik minimal 4 angka
+        if (noHP.length >= 4) {
+            let prefix = noHP.substring(0, 4);
+            let provider = deteksiPrefix(prefix);
+            
+            if (provider) {
+                badge.style.display = "inline-block";
+                badge.innerText = "Provider: " + provider.toUpperCase();
+                ambilProdukDariFirestore(kategoriAktif, provider);
+            } else {
+                badge.style.display = "none";
+                document.getElementById("daftar-produk").innerHTML = "";
+            }
+        } else {
+            badge.style.display = "none";
+            document.getElementById("daftar-produk").innerHTML = "";
+        }
+    }
+
+    function deteksiPrefix(prefix) {
+        if (["0811", "0812", "0813", "0821", "0822", "0823", "0852", "0853"].includes(prefix)) return "telkomsel";
+        if (["0856", "0857", "0858"].includes(prefix)) return "indosat";
+        if (["0817", "0818", "0819", "0859", "0877", "0878"].includes(prefix)) return "xl";
+        if (["0831", "0832", "0833", "0838"].includes(prefix)) return "axis";
+        if (["0895", "0896", "0897", "0898", "0899"].includes(prefix)) return "tri";
+        if (["0881", "0882", "0883", "0888", "0889"].includes(prefix)) return "smartfren";
+        if (["0851"].includes(prefix)) return "byu";
+        return null;
+    }
+
+    // FUNGSI 3: MENARIK DATA PRODUK DARI FIRESTORE DATABASE
+    function ambilProdukDariFirestore(kategori, provider) {
+        document.getElementById("loading-produk").style.display = "block";
+        let container = document.getElementById("daftar-produk");
+        container.innerHTML = "";
+
+        // Mengambil produk berdasarkan kategori dan provider
+        db.collection("products")
+          .where("kategori", "==", kategori)
+          .where("provider", "==", provider)
+          .get()
+          .then((querySnapshot) => {
+              document.getElementById("loading-produk").style.display = "none";
+              
+              if(querySnapshot.empty) {
+                  container.innerHTML = "<div style='text-align:center; color:red; padding:10px;'>Produk belum tersedia di etalase ini.</div>";
+                  return;
+              }
+
+              // Masukkan data ke dalam Array agar bisa diurutkan harganya dari murah ke mahal
+              let produkList = [];
+              querySnapshot.forEach((doc) => {
+                  produkList.push(doc.data());
+              });
+              
+              produkList.sort((a, b) => Number(a.harga) - Number(b.harga));
+
+              produkList.forEach((produk) => {
+                  container.innerHTML += `
+                      <div class="product-card" onclick="beliSekarang('${produk.sku}', '${produk.nama_produk}')">
+                          <div>
+                              <div class="product-name">${produk.nama_produk}</div>
+                              <small style="color:#6c757d">Kode: ${produk.sku.toUpperCase()}</small>
+                          </div>
+                          <div class="product-price">Rp ${Number(produk.harga).toLocaleString('id-ID')}</div>
+                      </div>
+                  `;
+              });
+          })
+          .catch((error) => {
+              document.getElementById("loading-produk").style.display = "none";
+              console.log("Error mengambil produk: ", error);
+          });
+    }
+
+    // FUNGSI 4: EKSEKUSI TOMBOL BELI KE SERVER APPS SCRIPT KITA
+    function beliSekarang(sku, nama) {
+        let tujuan = document.getElementById("input-tujuan").value;
+        if(!tujuan) { 
+            alert("Nomor tujuan wajib diisi terlebih dahulu!"); 
+            return; 
+        }
+
+        let konfirmasi = confirm("Beli " + nama + " ke nomor " + tujuan + "?");
+        if (!konfirmasi) return;
+
+        // ==========================================================
+        // WAJIB GANTI URL DI BAWAH INI DENGAN LINK APPS SCRIPT ANDA!
+        // ==========================================================
+        const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyawrjcfIRfr2Ch4WBIwhx2E-iUwG_Z3lcG79mjv574boopSURi_WgMsR3D26uYCZEY/exec";
+        
+        fetch(URL_APPS_SCRIPT, {
+            method: "POST",
+            body: JSON.stringify({ sku: sku, tujuan: tujuan })
+        })
+        .then(res => res.json())
+        .then(hasil => {
+            alert("STATUS TRANSAKSI: " + (hasil.data ? hasil.data.message : JSON.stringify(hasil)));
+        })
+        .catch(err => {
+            alert("Koneksi gagal/Terputus: " + err);
+        });
+    }
+</script>
 </body>
 </html>
