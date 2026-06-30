@@ -755,7 +755,13 @@
     // LOGIKA ANIMASI LAYAR PEMBUKA (SPLASH SCREEN)
     window.addEventListener('load', function() {
         setTimeout(function() {
-            document.getElementById('splash-screen').classList.add('hide-splash');
+            let splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.classList.add('hide-splash');
+                
+                // Hapus elemen dari latar belakang agar tidak menghalangi klik
+                setTimeout(() => { splash.style.display = 'none'; }, 600);
+            }
         }, 2000); // Angka 2000 berarti splash screen tayang selama 2 detik
     });
 </script>
