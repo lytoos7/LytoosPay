@@ -49,13 +49,33 @@
         }
 
         /* KUSTOMISASI KELAS HEADER & NAVIGASI */
-        .main-header {
-            background: linear-gradient(135deg, var(--primary), #5a32a3);
-            color: white;
-            padding: 20px;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
+        .main-header { 
+            background: linear-gradient(135deg, var(--primary), #5a32a3); 
+            color: white; 
+            padding: 20px 20px 45px 20px; /* Angka 45px ini yang mengangkat teks ke atas */
+            border-bottom-left-radius: 25px; 
+            border-bottom-right-radius: 25px; 
+            text-align: center; /* Memastikan logo di tengah */
         }
+
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--primary), #5a32a3);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+        .splash-logo {
+            width: 140px; /* Ukuran logo saat animasi buka */
+            animation: pulseLogo 1.5s infinite;
+        }
+        @keyframes pulseLogo {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .hide-splash { opacity: 0; visibility: hidden; }
 
         .header-sub {
             background: #ffffff;
@@ -108,11 +128,11 @@
         .w-btn { border: none; background: var(--bg-light); padding: 8px; border-radius: 8px; font-size: 11px; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s; }
         .w-btn:active { background: var(--primary-light); }
 
-        /* BANNER SLIDER */
-        .banner-container { margin: 0 20px 20px 20px; overflow: hidden; border-radius: 12px; position: relative; }
-        .banner-slider { display: flex; transition: transform 0.5s ease-in-out; }
-        .banner-slide { min-width: 100%; height: 120px; background: linear-gradient(45deg, #6610f2, #e83e8c); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; border-radius: 12px; }
-        .banner-slide:nth-child(2) { background: linear-gradient(45deg, #0d6efd, #0dcaf0); }
+        /* BANNER GAMBAR / FOTO */
+        .banner-container { margin: 0 20px 20px 20px; overflow: hidden; border-radius: 12px; position: relative; height: 130px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .banner-slider { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
+        .banner-slide { min-width: 100%; height: 100%; }
+        .banner-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
 
         /* SECTION / LABEL KATEGORI */
         .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin: 15px 20px 8px 20px; display: flex; align-items: center; gap: 6px; }
@@ -199,12 +219,16 @@
 </head>
 <body>
 
+<div id="splash-screen">
+    <img src="logo-lytoospay.png" alt="LytoosPay" class="splash-logo" onerror="this.src='https://via.placeholder.com/150?text=LOGO'">
+</div>
+
 <div class="app-container">
 
     <div id="tab-home" class="page active">
         <div class="main-header">
-            <h2 style="font-size: 18px; letter-spacing: 0.5px;">LYTOOSPAY</h2>
-            <p style="font-size: 11px; opacity: 0.8; margin-top: 2px;">Solusi Transaksi Digital Tercepat</p>
+            <img src="logo-lytoospay.png" alt="LytoosPay" style="height: 38px; margin-bottom: 5px;" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+            <p style="font-size: 11px; opacity: 0.9; margin: 0;">Solusi Transaksi Digital Tercepat</p>
         </div>
 
         <div class="wallet-card">
@@ -232,8 +256,15 @@
 
         <div class="banner-container">
             <div class="banner-slider" id="slider">
-                <div class="banner-slide">🔥 DISKON TOKEN PLN MALAM INI BEBAS ADMIN!</div>
-                <div class="banner-slide">🚀 INJECT VOUCHER KILAT, PROSES 1 DETIK!</div>
+                <div class="banner-slide">
+                    <img src="banner1.png" alt="Promo 1" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+1'">
+                </div>
+                <div class="banner-slide">
+                    <img src="banner2.png" alt="Promo 2" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+2'">
+                </div>
+                <div class="banner-slide">
+                    <img src="banner3.png" alt="Promo 3" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+3'">
+                </div>
             </div>
         </div>
 
@@ -720,6 +751,13 @@
     function bukaCS() {
         alert("Membuka Layanan Pelanggan (CS Telegram/WA Live): @LytoosPay_CS");
     }
+
+    // LOGIKA ANIMASI LAYAR PEMBUKA (SPLASH SCREEN)
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('splash-screen').classList.add('hide-splash');
+        }, 2000); // Angka 2000 berarti splash screen tayang selama 2 detik
+    });
 </script>
 
 </body>
