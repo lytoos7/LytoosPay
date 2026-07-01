@@ -52,10 +52,12 @@
         .main-header { 
             background: linear-gradient(135deg, var(--primary), #5a32a3); 
             color: white; 
-            padding: 20px 20px 45px 20px; /* Angka 45px ini yang mengangkat teks ke atas */
+            padding: 20px;
             border-bottom-left-radius: 25px; 
             border-bottom-right-radius: 25px; 
-            text-align: center; /* Memastikan logo di tengah */
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
         }
 
         #splash-screen {
@@ -142,6 +144,13 @@
         .menu-item { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; transition: 0.1s; }
         .menu-item:active { transform: scale(0.92); }
         .icon-box { width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 6px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        /* Memaksa semua gambar di dalam menu/sub-menu menjadi kotak rapi */
+        .icon-box img, .sub-item-icon img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block;
+        }
         .menu-item span { font-size: 11px; font-weight: 500; color: var(--text-dark); line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
         /* COLOR PALETTES MENU */
@@ -227,8 +236,11 @@
 
     <div id="tab-home" class="page active">
         <div class="main-header">
-            <img src="logo-lytoospay.png" alt="LytoosPay" style="height: 38px; margin-bottom: 5px;" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
-            <p style="font-size: 11px; opacity: 0.9; margin: 0;">Solusi Transaksi Digital Tercepat</p>
+            <img src="logo-lytoospay.png" style="height: 40px; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/40'">
+            <div style="text-align: left;">
+                <h2 style="font-size: 16px; margin: 0;">LytoosPay</h2>
+                <p style="font-size: 10px; opacity: 0.9; margin: 0;">Solusi Transaksi Digital Tercepat</p>
+            </div>
         </div>
 
         <div class="wallet-card">
@@ -553,15 +565,16 @@
             container.innerHTML += `
                 <div class="sub-item-card" onclick="bukaFormAkhir('${item.id}', '${item.name}')">
                     <div class="sub-item-left">
-                        <div class="sub-item-icon">
+                        <!-- Kotak ikon yang sudah dikunci ukurannya oleh CSS di atas -->
+                        <div class="sub-item-icon" style="width: 40px; height: 40px; background: transparent;">
                             <img src="${item.img}" onerror="this.src='https://via.placeholder.com/40?text=IMG'">
                         </div>
                         <div class="sub-item-info">
-                            <h4>${item.name}</h4>
-                            <p>${item.desc}</p>
+                            <h4 style="margin: 0;">${item.name}</h4>
+                            <p style="margin: 0;">${item.desc}</p>
                         </div>
                     </div>
-                    <i class="fa-solid fa-chevron-right" style="color:var(--border-color)"></i>
+                    <i class="fa-solid fa-chevron-right" style="color:#cbd5e0"></i>
                 </div>
             `;
         });
