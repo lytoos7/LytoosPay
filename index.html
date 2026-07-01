@@ -753,17 +753,16 @@
         alert("Membuka Layanan Pelanggan (CS Telegram/WA Live): @LytoosPay_CS");
     }
 
-    // LOGIKA ANIMASI LAYAR PEMBUKA (SPLASH SCREEN)
-    window.addEventListener('load', function() {
+        // LOGIKA ANIMASI LAYAR PEMBUKA (ANTI-MACET)
         setTimeout(function() {
             let splash = document.getElementById('splash-screen');
             if (splash) {
                 splash.classList.add('hide-splash');
-                
-                // Hapus elemen dari latar belakang agar tidak menghalangi klik
+            
+                // Hapus elemen dari latar belakang agar bisa diklik
                 setTimeout(() => { splash.style.display = 'none'; }, 600);
             }
-        }, 2000); // Angka 2000 berarti splash screen tayang selama 2 detik
+        }, 2000); // Hitung mundur 2 detik langsung jalan!
     });
 </script>
 
