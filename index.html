@@ -4,241 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LytoosPay</title>
-    <link rel="icon" href="logo/logo-lytoospay.png" type="image/png">
-    
+    <link rel="icon" href="logo-lytoospay.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #6f42c1;
-            --primary-light: #f1ebfc;
-            --success: #28a745;
-            --danger: #dc3545;
-            --text-dark: #2d3748;
-            --text-muted: #718096;
-            --bg-light: #f7fafc;
-            --border-color: #edf2f7;
-        }
+        :root { --primary: #6f42c1; --primary-light: #f1ebfc; --success: #28a745; --text-dark: #2d3748; --text-muted: #718096; --bg-light: #f7fafc; --border-color: #edf2f7; }
+        * { box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { background: #cbd5e0; color: var(--text-dark); display: flex; justify-content: center; }
+        
+        .app-container { width: 100%; max-width: 450px; background: #ffffff; min-height: 100vh; display: flex; flex-direction: column; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.15); padding-bottom: 70px; overflow-x: hidden; }
 
-        * {
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background: #cbd5e0;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Container mirip Layar Smartphone */
-        .app-container {
-            width: 100%;
-            max-width: 450px;
-            background: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            padding-bottom: 70px; /* Ruang untuk Bottom Nav */
-            overflow-x: hidden;
-        }
-
-        /* KUSTOMISASI KELAS HEADER & NAVIGASI */
-        .main-header { 
-            background: linear-gradient(135deg, var(--primary), #5a32a3); 
-            color: white; 
-            padding: 20px;
-            border-bottom-left-radius: 25px; 
-            border-bottom-right-radius: 25px; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px;
-        }
-
-        #splash-screen {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--primary), #5a32a3);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
-        }
-        .splash-logo {
-            width: 140px; /* Ukuran logo saat animasi buka */
-            animation: pulseLogo 1.5s infinite;
-        }
-        @keyframes pulseLogo {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        .hide-splash { opacity: 0; visibility: hidden; }
-
-        .header-sub {
-            background: #ffffff;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .btn-back-modern {
-            border: none;
-            background: var(--primary-light);
-            color: var(--primary);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 14px;
-            transition: 0.2s;
-            margin-right: 15px;
-        }
-
+        /* HEADER */
+        .main-header { background: linear-gradient(135deg, var(--primary), #5a32a3); color: white; padding: 20px 20px 45px 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; display: flex; align-items: center; gap: 12px; }
+        .header-sub { background: #ffffff; padding: 15px 20px; display: flex; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 10; }
+        .btn-back-modern { border: none; background: var(--primary-light); color: var(--primary); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; transition: 0.2s; margin-right: 15px; }
         .btn-back-modern:active { transform: scale(0.9); }
         .header-sub h3 { font-size: 16px; font-weight: 700; color: var(--text-dark); }
 
-        /* KARTU SALDO & PROFIL */
-        .wallet-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 15px;
-            margin: -25px 20px 20px 20px;
-            box-shadow: 0 8px 20px rgba(111, 66, 193, 0.12);
-            border: 1px solid var(--border-color);
-        }
+        /* WALLET & PROFILE (Dinamis) */
+        .wallet-card { background: #ffffff; border-radius: 16px; padding: 15px; margin: -25px 20px 20px 20px; box-shadow: 0 8px 20px rgba(111, 66, 193, 0.12); border: 1px solid var(--border-color); }
         .profile-section { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed var(--border-color); }
         .user-info { display: flex; align-items: center; gap: 10px; }
-        .user-avatar { width: 35px; height: 35px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-        .user-name { font-size: 13px; font-weight: 600; }
-        .user-tag { font-size: 10px; color: var(--text-muted); background: var(--bg-light); padding: 2px 6px; border-radius: 4px; }
+        .user-avatar { width: 35px; height: 35px; background: var(--primary-light); border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .user-name { font-size: 13px; font-weight: 700; color: var(--primary); }
         .balance-info { display: flex; justify-content: space-between; align-items: center; }
         .balance-amount { font-size: 20px; font-weight: 700; color: var(--text-dark); }
-        
-        .wallet-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
         .w-btn { border: none; background: var(--bg-light); padding: 8px; border-radius: 8px; font-size: 11px; font-weight: 600; color: var(--primary); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: 0.2s; }
         .w-btn:active { background: var(--primary-light); }
 
-        /* BANNER GAMBAR / FOTO */
+        /* BANNER */
         .banner-container { margin: 0 20px 20px 20px; overflow: hidden; border-radius: 12px; position: relative; height: 130px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .banner-slider { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
         .banner-slide { min-width: 100%; height: 100%; }
         .banner-slide img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
 
-        /* SECTION / LABEL KATEGORI */
+        /* MENU GRID & ICON */
         .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin: 15px 20px 8px 20px; display: flex; align-items: center; gap: 6px; }
-
-        /* GRID MENU UTAMA */
         .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 0 20px 15px 20px; }
         .menu-item { display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer; transition: 0.1s; }
         .menu-item:active { transform: scale(0.92); }
-        .icon-box { width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 6px; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        /* Memaksa semua gambar di dalam menu/sub-menu menjadi kotak rapi */
-        .icon-box img, .sub-item-icon img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important;
-            display: block;
-        }
+        .icon-box { width: 45px; height: 45px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 6px; }
+        .icon-box img, .sub-item-icon img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block; }
         .menu-item span { font-size: 11px; font-weight: 500; color: var(--text-dark); line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* COLOR PALETTES MENU */
-        .c-1 { background: #4dabf7; } .c-2 { background: #37b24d; } .c-3 { background: #f76707; } .c-4 { background: #fcc419; }
-        .c-5 { background: #e64980; } .c-6 { background: #7048e8; } .c-7 { background: #10b1b1; } .c-8 { background: #f03e3e; }
-
-        /* HALAMAN (PAGES) MANAGEMENT */
+        /* PAGES */
         .page { display: none; width: 100%; height: 100%; }
         .page.active { display: block; animation: slideIn 0.25s ease-out; }
         @keyframes slideIn { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        /* LIST ITEM & SUB-KATEGORI GAYA PREMIUM */
-        .sub-list { padding: 10px 20px; display: flex; flex-direction: column; gap: 10px; }
-        .sub-item-card { background: white; border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: 0.2s; }
-        .sub-item-card:active { background: var(--bg-light); border-color: var(--primary); }
-        .sub-item-left { display: flex; align-items: center; gap: 12px; }
-        .sub-item-icon { width: 35px; height: 35px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; }
-        .sub-item-info h4 { font-size: 14px; font-weight: 600; color: var(--text-dark); }
-        .sub-item-info p { font-size: 11px; color: var(--text-muted); }
+        /* LOGIN PAGE KHUSUS */
+        #page-login { background: white; z-index: 200; position: absolute; top:0; left:0; min-height: 100vh; padding: 30px; text-align: center; display: none; flex-direction: column; justify-content: center; }
+        #page-login.active { display: flex; }
+        .auth-btn { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-color); background: white; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; transition: 0.2s; }
+        .auth-btn:hover { background: var(--bg-light); }
+        .auth-btn.btn-google { color: #db4437; border-color: #db4437; }
+        .auth-btn.btn-facebook { color: #4267B2; border-color: #4267B2; }
+        .auth-btn.btn-phone { color: var(--success); border-color: var(--success); }
+        
+        .phone-login-box { margin-top: 15px; padding: 15px; border: 1px solid var(--border-color); border-radius: 10px; display: none; }
+        .phone-login-box input { width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 8px; margin-bottom: 10px; }
+        .phone-login-box button { width: 100%; padding: 12px; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
-        /* INPUT FORM & NOMINAL */
+        /* SUB-LIST */
+        .sub-list { padding: 10px 20px; display: flex; flex-direction: column; gap: 10px; }
+        .sub-item-card { background: white; border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+        .sub-item-left { display: flex; align-items: center; gap: 12px; }
+
+        /* FORM */
         .form-container { padding: 20px; }
         .input-wrapper { position: relative; margin-bottom: 15px; }
-        .input-wrapper input { width: 100%; padding: 14px 15px 14px 45px; border: 1px solid #cbd5e0; border-radius: 10px; font-size: 15px; font-weight: 600; outline: none; transition: 0.2s; }
-        .input-wrapper input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.15); }
+        .input-wrapper input { width: 100%; padding: 14px 15px 14px 45px; border: 1px solid #cbd5e0; border-radius: 10px; font-size: 15px; font-weight: 600; outline: none; }
         .input-wrapper i { position: absolute; left: 15px; top: 16px; color: var(--text-muted); font-size: 16px; }
-        
         .radio-box-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
-        .radio-tile { border: 1px solid var(--border-color); background: white; padding: 12px; border-radius: 8px; text-align: center; cursor: pointer; font-size: 12px; font-weight: 600; transition: 0.2s; }
+        .radio-tile { border: 1px solid var(--border-color); background: white; padding: 12px; border-radius: 8px; text-align: center; cursor: pointer; font-size: 12px; font-weight: 600; }
         .radio-tile.selected { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
-
         .nominal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .nominal-card { background: white; border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; position: relative; }
-        .nominal-card:active { border-color: var(--primary); background: var(--primary-light); }
+        .nominal-card { background: white; border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
         .nom-title { font-size: 13px; font-weight: 700; color: var(--text-dark); }
         .nom-price { font-size: 14px; font-weight: 700; color: var(--success); margin-top: 8px; }
         .nom-code { font-size: 9px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; }
 
-        /* STRUK TRANSAKSI WATERMARK DANA STYLE */
+        /* STRUK */
         .receipt-page { padding: 20px; background: #f4f6f9; }
         .receipt-box { background: white; border-radius: 16px; border: 1px solid var(--border-color); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        
-        /* Lapisan Watermark Diagonal Banyak Semacam DANA */
-        .receipt-watermark-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; opacity: 0.04; font-size: 10px; font-weight: bold;
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-            padding: 20px; transform: rotate(-15deg) scale(1.2); color: #000;
-        }
-
+        .receipt-watermark-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.04; font-size: 10px; font-weight: bold; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px; transform: rotate(-15deg) scale(1.2); color: #000; }
         .receipt-header { text-align: center; padding: 20px; border-bottom: 1px dashed #cbd5e0; position: relative; }
-        .receipt-logo { font-size: 18px; font-weight: 800; color: var(--primary); letter-spacing: 0.5px; }
-        .receipt-status-badge { display: inline-block; background: rgba(40, 167, 69, 0.15); color: var(--success); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; margin-top: 8px; text-transform: uppercase; }
+        .receipt-logo { font-size: 18px; font-weight: 800; color: var(--primary); }
+        .receipt-status-badge { display: inline-block; background: rgba(40, 167, 69, 0.15); color: var(--success); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; margin-top: 8px; }
         .receipt-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
         .receipt-row { display: flex; justify-content: space-between; font-size: 12px; }
         .r-label { color: var(--text-muted); }
         .r-val { font-weight: 600; color: var(--text-dark); text-align: right; max-width: 60%; }
         .receipt-total { border-top: 1px dashed #cbd5e0; margin-top: 8px; padding-top: 12px; font-size: 15px; font-weight: 700; }
-
         .receipt-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px; }
         .btn-receipt { border: none; padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-share { background: var(--primary-light); color: var(--primary); }
-        .btn-print { background: var(--primary); color: white; }
 
-        /* BOTTOM NAVBAR FIXED */
-        .bottom-nav {
-            position: absolute; bottom: 0; left: 0; width: 100%; height: 65px;
-            background: #ffffff; border-top: 1px solid var(--border-color);
-            display: grid; grid-template-columns: repeat(4, 1fr); z-index: 100;
-        }
+        /* BOTTOM NAV */
+        .bottom-nav { position: absolute; bottom: 0; left: 0; width: 100%; height: 65px; background: #ffffff; border-top: 1px solid var(--border-color); display: grid; grid-template-columns: repeat(4, 1fr); z-index: 100; }
         .nav-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); cursor: pointer; font-size: 11px; font-weight: 500; gap: 4px; }
         .nav-tab.active { color: var(--primary); font-weight: 700; }
-        .nav-tab i { font-size: 18px; }
+        
+        #splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), #5a32a3); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
+        .splash-logo { width: 140px; animation: pulseLogo 1.5s infinite; }
+        @keyframes pulseLogo { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .hide-splash { opacity: 0; visibility: hidden; }
     </style>
 </head>
 <body>
 
 <div id="splash-screen">
-    <img src="logo/logo-lytoospay2.png" alt="LytoosPay" class="splash-logo" onerror="this.src='https://via.placeholder.com/150?text=LOGO'">
+    <img src="logo-lytoospay2.png" alt="LytoosPay" class="splash-logo" onerror="this.src='https://via.placeholder.com/150?text=LOGO'">
 </div>
 
 <div class="app-container">
 
+    <div id="page-login" class="page">
+        <img src="logo-lytoospay.png" style="width: 100px; margin: 0 auto 20px auto; border-radius:20px;" onerror="this.src='https://via.placeholder.com/100'">
+        <h2 style="margin-bottom: 5px;">Masuk ke Akun</h2>
+        <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 30px;">Silakan login untuk mulai bertransaksi.</p>
+        
+        <button class="auth-btn btn-google" onclick="loginGoogle()"><i class="fa-brands fa-google"></i> Lanjutkan dengan Google</button>
+        <button class="auth-btn btn-facebook" onclick="loginFacebook()"><i class="fa-brands fa-facebook"></i> Lanjutkan dengan Facebook</button>
+        <button class="auth-btn btn-phone" onclick="tampilFormHP()"><i class="fa-solid fa-phone"></i> Lanjutkan dengan No. HP</button>
+        
+        <div id="phone-login-box" class="phone-login-box">
+            <div id="recaptcha-container"></div>
+            <input type="text" id="phone-number" placeholder="Contoh: +628123456789">
+            <button onclick="kirimOTP()" id="btn-kirim-otp">Kirim OTP</button>
+            <div id="otp-area" style="display:none; margin-top:10px;">
+                <input type="text" id="otp-code" placeholder="Masukkan 6 Digit OTP">
+                <button onclick="verifikasiOTP()">Verifikasi</button>
+            </div>
+        </div>
+    </div>
+
     <div id="tab-home" class="page active">
         <div class="main-header">
-            <img src="logo/logo-lytoospay.png" style="height: 45px; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/40'">
+            <img src="logo-lytoospay.png" style="height: 40px; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/40'">
             <div style="text-align: left;">
                 <h2 style="font-size: 16px; margin: 0;">LytoosPay</h2>
                 <p style="font-size: 10px; opacity: 0.9; margin: 0;">Solusi Transaksi Digital Tercepat</p>
@@ -248,165 +151,100 @@
         <div class="wallet-card">
             <div class="profile-section">
                 <div class="user-info">
-                    <div class="user-avatar">L</div>
+                    <div class="user-avatar" id="user-avatar-display">
+                        <i class="fa-solid fa-user" style="color:#6f42c1;"></i>
+                    </div>
                     <div>
-                        <div class="user-name">Lytoos Member</div>
-                        <span class="user-tag"><i class="fa-solid var(--primary)"></i> Premium Agen</span>
+                        <div class="user-name" id="user-name-display">Memuat nama...</div>
                     </div>
                 </div>
-                <div class="w-btn" onclick="bukaCS()"><i class="fa-solid fa-headset"></i> CS Aktif</div>
+                <div class="w-btn" onclick="logoutAkun()" style="color:var(--danger); background: #ffe3e3;"><i class="fa-solid fa-right-from-bracket"></i> Keluar</div>
             </div>
             <div class="balance-info">
                 <div>
                     <span style="font-size: 11px; color: var(--text-muted); display:block;">Saldo Akun</span>
-                    <span class="balance-amount" id="home-saldo-text">Rp 154.200</span>
+                    <span class="balance-amount">Rp 0</span>
                 </div>
                 <div style="display:flex; gap:8px;">
-                    <button class="w-btn" onclick="triggerTopup()"><i class="fa-solid fa-wallet"></i> Top Up</button>
-                    <button class="w-btn" onclick="alert('QRIS Merchant Siap Dibuat!')"><i class="fa-solid fa-qrcode"></i> QRIS</button>
+                    <button class="w-btn" onclick="bukaFormNominalDirect('deposit', 'admin', 'Isi Saldo (Top Up)')"><i class="fa-solid fa-wallet"></i> Top Up</button>
+                    <button class="w-btn" onclick="bukaFormNominalDirect('qris', 'admin', 'QRIS Merchant')"><i class="fa-solid fa-qrcode"></i> QRIS</button>
                 </div>
             </div>
         </div>
 
         <div class="banner-container">
             <div class="banner-slider" id="slider">
-                <div class="banner-slide">
-                    <img src="banner1.png" alt="Promo 1" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+1'">
-                </div>
-                <div class="banner-slide">
-                    <img src="banner2.png" alt="Promo 2" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+2'">
-                </div>
-                <div class="banner-slide">
-                    <img src="banner3.png" alt="Promo 3" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+3'">
-                </div>
+                <div class="banner-slide"><img src="banner1.png" alt="Promo 1" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+1'"></div>
+                <div class="banner-slide"><img src="banner2.png" alt="Promo 2" onerror="this.src='https://via.placeholder.com/400x130?text=Banner+Promo+2'"></div>
             </div>
         </div>
 
         <div class="section-title"><i class="fa-solid fa-bolt"></i> Isi Ulang & Tagihan</div>
         <div class="menu-grid">
-            <div class="menu-item" onclick="bukaNavBertingkat('pulsa')">
-                <div class="icon-box">
-                    <img src="icon/icon-pulsa.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>Pulsa</span>
-            </div>
-            <div class="menu-item" onclick="bukaNavBertingkat('internet')">
-                <div class="icon-box">
-                    <img src="icon/icon-internet.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;">
-                </div>
-                <span>Paket Internet</span>
-            </div>
-            <div class="menu-item" onclick="bukaNavBertingkat('telpon')">
-                <div class="icon-box">
-                    <img src="icon/icon-telpon.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>Paket Telpon</span>
-            </div>
-            <div class="menu-item" onclick="bukaNavBertingkat('sms')">
-                <div class="icon-box">
-                    <img src="icon/icon-sms.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>Paket SMS</span>
-            </div>
-            <div class="menu-item" onclick="bukaNavBertingkat('token_pln')">
-                <div class="icon-box">
-                    <img src="icon/icon-pln.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>Token PLN</span>
-            </div>
-            <div class="menu-item" onclick="alert('Fitur Cek Masa Aktif Kartu Segera!')">
-                <div class="icon-box">
-                    <img src="icon/icon-masa-aktif.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>Masa Aktif</span>
-            </div>
-            <div class="menu-item" onclick="alert('Fitur Info Kartu/HLR Segera!')">
-                <div class="icon-box">
-                    <img src="icon/icon-info-kartu.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>Info Kartu</span>
-            </div>
-            <div class="menu-item" onclick="bukaNavBertingkat('ewallet')">
-                <div class="icon-box">
-                    <img src="icon/icon-ewallet.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div>
-                <span>E-Wallet</span>
-            </div>
+            <div class="menu-item" onclick="bukaNavBertingkat('pulsa')"><div class="icon-box"><img src="icon-pulsa.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Pulsa</span></div>
+            <div class="menu-item" onclick="bukaNavBertingkat('internet')"><div class="icon-box"><img src="icon-internet.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Paket Internet</span></div>
+            <div class="menu-item" onclick="bukaNavBertingkat('telpon')"><div class="icon-box"><img src="icon-telpon.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Paket Telpon</span></div>
+            <div class="menu-item" onclick="bukaNavBertingkat('sms')"><div class="icon-box"><img src="icon-sms.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Paket SMS</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('token_pln', 'pln', 'Token PLN')"><div class="icon-box"><img src="icon-pln.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Token PLN</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('masa_aktif', 'all', 'Masa Aktif')"><div class="icon-box"><img src="icon-masa-aktif.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Masa Aktif</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('info_kartu', 'all', 'Info Kartu')"><div class="icon-box"><img src="icon-info-kartu.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Info Kartu</span></div>
+            <div class="menu-item" onclick="bukaNavBertingkat('ewallet')"><div class="icon-box"><img src="icon-ewallet.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>E-Wallet</span></div>
         </div>
 
         <div class="section-title"><i class="fa-solid fa-ticket"></i> Fitur Voucher & Perdana</div>
         <div class="menu-grid">
-            <div class="menu-item" onclick="alert('Redeem Voucher Sukses')"><div class="icon-box"><img src="icon/icon-reedem-voucher.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Redeem Voucher</span></div>
-            <div class="menu-item" onclick="alert('Status Voucher: Aktif')"><div class="icon-box"><img src="icon/icon-cek-status-voucher.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Cek Status Voucher</span></div>
-            <div class="menu-item" onclick="alert('Membuka Etalase Voucher Internet')"><div class="icon-box"><img src="icon/icon-voucher-internet.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Voucher Internet</span></div>
-            <div class="menu-item" onclick="alert('Aktivasi Sukses!')"><div class="icon-box"><img src="icon/icon-aktivasi-voucher.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Aktivasi Voucher</span></div>
-            <div class="menu-item" onclick="alert('Mulai Inject Kartu...')"><div class="icon-box"><img src="icon/icon-inject-perdana.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Inject Perdana</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('voucher', 'redeem', 'Redeem Voucher')"><div class="icon-box"><img src="icon-reedem-voucher.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Redeem Voucher</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('voucher', 'status', 'Cek Status Voucher')"><div class="icon-box"><img src="icon-cek-status-voucher.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Cek Status Voucher</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('voucher', 'internet', 'Voucher Internet')"><div class="icon-box"><img src="icon-voucher-internet.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Voucher Internet</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('voucher', 'aktivasi', 'Aktivasi Voucher')"><div class="icon-box"><img src="icon-aktivasi-voucher.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Aktivasi Voucher</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('perdana', 'inject', 'Inject Perdana')"><div class="icon-box"><img src="icon-inject-perdana.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Inject Perdana</span></div>
         </div>
 
         <div class="section-title"><i class="fa-solid fa-gamepad"></i> Top Up Game Terpopuler</div>
         <div class="menu-grid">
-            <div class="menu-item" onclick="bukaNavBertingkat('game_ml')"><div class="icon-box"><img src="logo/logo-ml.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Mobile Legends</span></div>
-            <div class="menu-item" onclick="bukaNavBertingkat('game_ff')"><div class="icon-box"><img src="logo/logo-ff.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Free Fire</span></div>
-            <div class="menu-item" onclick="bukaNavBertingkat('game_pubg')"><div class="icon-box"><img src="logo/logo-pubgm.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>PUBG Mobile</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('game', 'ml', 'Mobile Legends')"><div class="icon-box"><img src="logo-ml.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Mobile Legends</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('game', 'ff', 'Free Fire')"><div class="icon-box"><img src="logo-ff.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Free Fire</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('game', 'pubgm', 'PUBG Mobile')"><div class="icon-box"><img src="logo-pubgm.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>PUBG Mobile</span></div>
         </div>
 
         <div class="section-title"><i class="fa-solid fa-file-invoice-dollar"></i> Tagihan Bulanan</div>
         <div class="menu-grid">
-            <div class="menu-item" onclick="alert('Menu BPJS')"><div class="icon-box"><img src="logo/logo-bpjs.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>BPJS Kesehatan</span></div>
-            <div class="menu-item" onclick="alert('Menu PGN')"><div class="icon-box"><img src="logo/logo-pgn.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Gas Negara PGN</span></div>
-            <div class="menu-item" onclick="alert('Menu Pertagas')"><div class="icon-box"><img src="logo/logo-pertagas.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Pertagas</span></div>
-            <div class="menu-item" onclick="alert('Menu Tagihan PLN')"><div class="icon-box"><img src="logo/logo-tagihan-pln.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>PLN Pasca</span></div>
-            <div class="menu-item" onclick="alert('Menu IndiHome')"><div class="icon-box"><img src="logo/logo-indihome.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Telkom/IndiHome</span></div>
-            <div class="menu-item" onclick="bukaNavBertingkat('tv_berbayar')"><div class="icon-box"><img src="logo/logo-tv.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>TV Berbayar</span></div>
-            <div class="menu-item" onclick="alert('Menu Tagihan Seluler')"><div class="icon-box"><img src="logo/logo-tagihan-seluler.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Tagihan Seluler</span></div>
-            <div class="menu-item" onclick="alert('Menu Cicilan Finance')"><div class="icon-box"><img src="logo/logo-cicilan-finance.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Cicilan Finance</span></div>
-            <div class="menu-item" onclick="alert('Menu Internet Bulanan')"><div class="icon-box"><img src="logo/logo-internet-bulanan.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Internet Bulanan</span></div>
-            <div class="menu-item" onclick="alert('Menu PDAM Air')"><div class="icon-box"><img src="logo/logo-pdam.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>PDAM</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'bpjs', 'BPJS Kesehatan')"><div class="icon-box"><img src="logo-bpjs.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>BPJS Kesehatan</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'pgn', 'Gas Negara PGN')"><div class="icon-box"><img src="logo-pgn.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Gas Negara PGN</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'pertagas', 'Pertagas')"><div class="icon-box"><img src="logo-pertagas.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Pertagas</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'pln_pasca', 'PLN Pascabayar')"><div class="icon-box"><img src="logo-tagihan-pln.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>PLN Pasca</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'indihome', 'Telkom/IndiHome')"><div class="icon-box"><img src="logo-indihome.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Telkom/IndiHome</span></div>
+            <div class="menu-item" onclick="bukaNavBertingkat('tv_berbayar')"><div class="icon-box"><img src="logo-tv.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>TV Berbayar</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'seluler', 'Tagihan Seluler')"><div class="icon-box"><img src="logo-tagihan-seluler.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Tagihan Seluler</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'finance', 'Cicilan Finance')"><div class="icon-box"><img src="logo-cicilan-finance.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Cicilan Finance</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'internet', 'Internet Bulanan')"><div class="icon-box"><img src="logo-internet-bulanan.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Internet Bulanan</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'pdam', 'PDAM Air')"><div class="icon-box"><img src="logo-pdam.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>PDAM</span></div>
         </div>
 
         <div class="section-title"><i class="fa-solid fa-folder-plus"></i> Hiburan & E-Money</div>
         <div class="menu-grid">
-            <div class="menu-item" onclick="alert('Menu M-Tix Cinema XXI')"><div class="icon-box"><img src="logo/logo-mtix.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>M-Tix XXI</span></div>
-            <div class="menu-item" onclick="alert('Menu BNI TapCash')"><div class="icon-box"><img src="logo/logo-bni-tap-cash.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>BNI TapCash</span></div>
-            <div class="menu-item" onclick="alert('Menu BRI Brizzi')"><div class="icon-box"><img src="logo/logo-bri-brizzi.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>BRI Brizzi</span></div>
-            <div class="menu-item" onclick="alert('Menu Mandiri E-Money')"><div class="icon-box"><img src="logo/logo-mandiri-emoney.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Mandiri E-Money</span></div>
-            <div class="menu-item" onclick="alert('Menu Wifi.ID')"><div class="icon-box"><img src="logo/logo-wifiid.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Wifi ID</span></div>
-            <div class="menu-item" onclick="alert('Menu Token Pertagas')"><div class="icon-box"><img src="logo/logo-token-pertagas.png" style="width: 45px; height: 45px; border-radius: 12px; object-fit: cover;"></div><span>Token Pertagas</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('hiburan', 'mtix', 'M-Tix XXI')"><div class="icon-box"><img src="logo-mtix.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>M-Tix XXI</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('emoney', 'tapcash', 'BNI TapCash')"><div class="icon-box"><img src="logo-bni-tap-cash.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>BNI TapCash</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('emoney', 'brizzi', 'BRI Brizzi')"><div class="icon-box"><img src="logo-bri-brizzi.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>BRI Brizzi</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('emoney', 'mandiri', 'Mandiri E-Money')"><div class="icon-box"><img src="logo-mandiri-emoney.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Mandiri E-Money</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('hiburan', 'wifiid', 'Wifi ID')"><div class="icon-box"><img src="logo-wifiid.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Wifi ID</span></div>
+            <div class="menu-item" onclick="bukaFormNominalDirect('tagihan', 'token_pertagas', 'Token Pertagas')"><div class="icon-box"><img src="logo-token-pertagas.png" onerror="this.src='https://via.placeholder.com/45'"></div><span>Token Pertagas</span></div>
         </div>
     </div>
 
-    <div id="tab-transaksi" class="page">
-        <div class="header-sub"><h3>Antrean Transaksi</h3></div>
-        <div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">Belum ada transaksi diproses.</div>
-    </div>
-
-    <div id="tab-riwayat" class="page">
-        <div class="header-sub"><h3>Riwayat Transaksi</h3></div>
-        <div class="sub-list" id="riwayat-container-list"></div>
-    </div>
-
-    <div id="tab-profil" class="page">
-        <div class="header-sub"><h3>Profil Akun</h3></div>
-        <div style="padding: 20px; text-align:center;">
-            <div class="user-avatar" style="width: 70px; height: 70px; font-size: 28px; margin: 0 auto 15px auto;">L</div>
-            <h4 style="font-size:16px;">Lytoos Merchant</h4>
-            <p style="font-size:12px; color:var(--text-muted)">ID: LP882910</p>
-        </div>
-    </div>
+    <div id="tab-transaksi" class="page"><div class="header-sub"><h3>Antrean Transaksi</h3></div><div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">Belum ada transaksi diproses.</div></div>
+    <div id="tab-riwayat" class="page"><div class="header-sub"><h3>Riwayat Transaksi</h3></div><div class="sub-list" id="riwayat-container-list"></div></div>
+    <div id="tab-profil" class="page"><div class="header-sub"><h3>Bantuan Pelanggan</h3></div><div style="padding: 20px; text-align:center;"><p style="font-size:12px; color:var(--text-muted)">Hubungi CS (Telegram/WhatsApp):<br><b>@LytoosPay_CS</b></p></div></div>
 
     <div id="page-sub-kategori" class="page">
-        <div class="header-sub">
-            <button class="btn-back-modern" onclick="kembaliKeDua()"><i class="fa-solid fa-arrow-left"></i></button>
-            <h3 id="sub-kategori-title">Pilih Operator</h3>
-        </div>
-        <div class="sub-list" id="sub-kategori-container">
-            </div>
+        <div class="header-sub"><button class="btn-back-modern" onclick="kembaliKeDua()"><i class="fa-solid fa-arrow-left"></i></button><h3 id="sub-kategori-title">Pilih Operator</h3></div>
+        <div class="sub-list" id="sub-kategori-container"></div>
     </div>
 
     <div id="page-form-nominal" class="page">
-        <div class="header-sub">
-            <button class="btn-back-modern" onclick="kembaliKeSub()"><i class="fa-solid fa-arrow-left"></i></button>
-            <h3 id="form-nominal-title">Form Pemesanan</h3>
-        </div>
+        <div class="header-sub"><button class="btn-back-modern" onclick="kembaliKeSub()"><i class="fa-solid fa-arrow-left"></i></button><h3 id="form-nominal-title">Form Pemesanan</h3></div>
         <div class="form-container">
-            <div class="input-wrapper">
-                <i class="fa-solid fa-keyboard"></i>
-                <input type="text" id="global-input-tujuan" placeholder="Masukkan Nomor HP / ID">
-            </div>
-
+            <div class="input-wrapper"><i class="fa-solid fa-keyboard"></i><input type="text" id="global-input-tujuan" placeholder="Masukkan Nomor HP / ID"></div>
             <div id="wrapper-radio-opsi" style="display:none;">
                 <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); display:block; margin-bottom: 6px;">PILIH LAYANAN:</div>
                 <div class="radio-box-container">
@@ -414,29 +252,17 @@
                     <div class="radio-tile" id="rad-2" onclick="setRadioOpsi(2)">Layanan By.U</div>
                 </div>
             </div>
-
             <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); display:block; margin-bottom: 10px;">DAFTAR PRODUK:</div>
-            <div class="nominal-grid" id="global-nominal-container">
-                </div>
+            <div class="nominal-grid" id="global-nominal-container"></div>
         </div>
     </div>
 
     <div id="page-struk" class="page">
-        <div class="header-sub">
-            <button class="btn-back-modern" onclick="tutupStruk()"><i class="fa-solid fa-xmark"></i></button>
-            <h3>Struk Pembayaran</h3>
-        </div>
+        <div class="header-sub"><button class="btn-back-modern" onclick="tutupStruk()"><i class="fa-solid fa-xmark"></i></button><h3>Struk Pembayaran</h3></div>
         <div class="receipt-page">
             <div class="receipt-box" id="print-area">
-                <div class="receipt-watermark-bg">
-                    <div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div>
-                    <div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div>
-                </div>
-                <div class="receipt-header">
-                    <div class="receipt-logo">LYTOOSPAY</div>
-                    <div style="font-size: 11px; color: var(--text-muted); margin-top:2px;">Toko Agen Pulsa Pintar</div>
-                    <span class="receipt-status-badge">BERHASIL</span>
-                </div>
+                <div class="receipt-watermark-bg"><div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div><div>LytoosPay</div></div>
+                <div class="receipt-header"><div class="receipt-logo">LYTOOSPAY</div><div style="font-size: 11px; color: var(--text-muted); margin-top:2px;">Toko Agen Pulsa Pintar</div><span class="receipt-status-badge">BERHASIL</span></div>
                 <div class="receipt-body">
                     <div class="receipt-row"><span class="r-label">Waktu</span><span class="r-val" id="st-waktu">-</span></div>
                     <div class="receipt-row"><span class="r-label">ID Transaksi</span><span class="r-val" id="st-id">-</span></div>
@@ -453,14 +279,15 @@
         <div class="nav-tab active" id="btn-tab-home" onclick="navigasiTab('home')"><i class="fa-solid fa-house"></i><span>Home</span></div>
         <div class="nav-tab" id="btn-tab-transaksi" onclick="navigasiTab('transaksi')"><i class="fa-solid fa-arrows-spin"></i><span>Transaksi</span></div>
         <div class="nav-tab" id="btn-tab-riwayat" onclick="navigasiTab('riwayat')"><i class="fa-solid fa-clock-rotate-left"></i><span>Riwayat</span></div>
-        <div class="nav-tab" id="btn-tab-profil" onclick="navigasiTab('profil')"><i class="fa-solid fa-user-gear"></i><span>Profil</span></div>
+        <div class="nav-tab" id="btn-tab-profil" onclick="navigasiTab('profil')"><i class="fa-solid fa-headset"></i><span>Bantuan</span></div>
     </div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
 <script>
-  // Kunci Firebase Anda wajib terisi di bawah ini!
   var firebaseConfig = {
     apiKey: "AIzaSyD5OAu-ytGL26g1iHrBfNqY8mm2zB2Sphg",
     authDomain: "lytoospay-66a22.firebaseapp.com",
@@ -469,136 +296,169 @@
     messagingSenderId: "143149599518",
     appId: "1:143149599518:web:828b8dcf8a1a77cd75970f"
   };
-  
   if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
   const db = firebase.firestore();
+  const auth = firebase.auth();
 </script>
 
 <script>
-    // DATA MOCK PROVIDER UNTUK ALUR NAVIGASI BERTINGKAT MEWAH
+    // DATA MOCK PROVIDER YANG DIPERLUAS
     const DATA_ROUTING = {
         'pulsa': { title: 'Pilih Operator Pulsa', items: [
-            { id: 'telkomsel', name: 'Telkomsel', desc: 'Pulsa Telkomsel', img: 'logo/logo-telkomsel.png' },
-            { id: 'by.u', name: 'by.U', desc: 'Pulsa by.U', img: 'logo/logo-byu.png' },
-            { id: 'xl', name: 'XL Axiata', desc: 'Pulsa XL', img: 'logo/logo-xl.png' },
-            { id: 'axis', name: 'Axis', desc: 'Pulsa Axis', img: 'logo/logo-axis.png' },
-            { id: 'indosat', name: 'Indosat Ooredoo', desc: 'Pulsa Indosat', img: 'logo/logo-indosat.png' },
-            { id: 'tri', name: 'Tri Hutchison', desc: 'Pulsa Masa Aktif Panjang', img: 'logo/logo-tri.png' },
-            { id: 'smartfren', name: 'Smartfren', desc: 'Pulsa Data Smartfren', img: 'logo/logo-smartfren.png' }
+            { id: 'telkomsel', name: 'Telkomsel', desc: 'Pulsa Telkomsel', img: 'logo-telkomsel.png' },
+            { id: 'by.u', name: 'by.U', desc: 'Pulsa by.U', img: 'logo-byu.png' },
+            { id: 'xl', name: 'XL Axiata', desc: 'Pulsa XL', img: 'logo-xl.png' },
+            { id: 'axis', name: 'Axisa', desc: 'Pulsa Axis', img: 'logo-axis.png' },
+            { id: 'indosat', name: 'Indosat Ooredoo', desc: 'Pulsa Indosat', img: 'logo-indosat.png' },
+            { id: 'tri', name: 'Tri Hutchison', desc: 'Pulsa Tri', img: 'logo-tri.png' },
+            { id: 'smartfren', name: 'Smartfren', desc: 'Pulsa Smartfren', img: 'logo-smartfren.png' }
         ]},
-        'internet': { title: 'Pilih Paket Data Internet', items: [
-            { id: 'telkomsel_data', name: 'Paket Data Telkomsel', desc: 'Internet Flash / OmG', img: 'logo/logo-telkomsel.png' },
-            { id: 'byu_data', name: 'Paket Data by.U', desc: 'Umum', img: 'logo/logo-byu.png' },
-            { id: 'xl_data', name: 'Paket Data XL', desc: 'Xtra Combo Flex', img: 'logo/logo-xl.png' },
-            { id: 'axis_data', name: 'Paket Data Axis', desc: 'Bronet Kuota Irit', img: 'logo/logo-axis.png' },
-            { id: 'indosat_data', name: 'Paket Data Indosat', desc: 'Freedom Combo', img: 'logo/logo-indosat.png' },
-            { id: 'tri_data', name: 'Paket Data Tri', desc: 'Umum', img: 'logo/logo-tri.png' },
-            { id: 'smartfren_data', name: 'Paket Data Smartfren', desc: 'Umum', img: 'logo/logo-smartfren.png' }
+        'internet': { title: 'Pilih Paket Internet', items: [
+            { id: 'telkomsel_data', name: 'Paket Telkomsel', desc: 'Flash / OmG', img: 'logo-telkomsel-data.png' },
+            { id: 'byu_data', name: 'Paket by.U', desc: 'Kuota Reguler', img: 'logo-byu-data.png' },
+            { id: 'xl_data', name: 'Paket XL', desc: 'Xtra Combo', img: 'logo-xl-data.png' },
+            { id: 'axis_data', name: 'Paket Axis', desc: 'Bronet Kuota', img: 'logo-axis-data.png' },
+            { id: 'indosat_data', name: 'Paket Indosat', desc: 'Freedom Combo', img: 'logo-indosat-data.png' },
+            { id: 'tri_data', name: 'Paket Tri', desc: 'Kuota Reguler', img: 'logo-tri-data.png' },
+            { id: 'smartfren_data', name: 'Paket Smartfren', desc: 'Volume Based', img: 'logo-smartfren-data.png' }
+        ]},
+        'telpon': { title: 'Pilih Paket Telpon', items: [
+            { id: 'telkomsel_telp', name: 'Telkomsel Telpon', desc: 'Nelpon Murah', img: 'logo-telkomsel.png' },
+            { id: 'indosat_telp', name: 'Indosat Telpon', desc: 'Nelpon Sepuasnya', img: 'logo-indosat.png' },
+            { id: 'xl_telp', name: 'XL Telpon', desc: 'Nelpon AnyNet', img: 'logo-xl.png' }
+        ]},
+        'sms': { title: 'Pilih Paket SMS', items: [
+            { id: 'telkomsel_sms', name: 'Telkomsel SMS', desc: 'Paket SMS', img: 'logo-telkomsel.png' },
+            { id: 'indosat_sms', name: 'Indosat SMS', desc: 'SMS Sepuasnya', img: 'logo-indosat.png' }
         ]},
         'ewallet': { title: 'Pilih Dompet E-Wallet', items: [
-            { id: 'dana', name: 'DANA', desc: 'Top Up Dana', img: 'logo/logo-dana.png' },
-            { id: 'ovo', name: 'OVO', desc: 'Top Up OVO', img: 'logo/logo-ovo.png' },
-            { id: 'gopay', name: 'GOPAY', desc: 'Top Up Gopay', img: 'logo/logo-gopay.png' },
-            { id: 'maxim', name: 'MAXIM', desc: 'Top Up Maxim', img: 'logo/logo-maxim.png' },
-            { id: 'shopeepay', name: 'ShopeePay', desc: 'Saldo Belanja Shopee', img: 'logo/logo-shopeepay.png' },
-            { id: 'linkaja', name: 'LinkAja', desc: 'Saldo LinkAja Merah', img: 'logo/logo-linkaja.png' }
+            { id: 'dana', name: 'DANA', desc: 'Top Up Dana', img: 'logo-dana.png' },
+            { id: 'ovo', name: 'OVO', desc: 'Top Up OVO', img: 'logo-ovo.png' },
+            { id: 'gopay', name: 'GOPAY', desc: 'Top Up Gopay', img: 'logo-gopay.png' },
+            { id: 'maxim', name: 'MAXIM', desc: 'Top Up Maxim', img: 'logo-maxim.png' },
+            { id: 'shopeepay', name: 'ShopeePay', desc: 'Saldo Shopee', img: 'logo-shopeepay.png' },
+            { id: 'linkaja', name: 'LinkAja', desc: 'Saldo LinkAja', img: 'logo-linkaja.png' }
         ]},
         'tv_berbayar': { title: 'Pilih Operator TV', items: [
-            { id: 'kvision', name: 'K-Vision TV', desc: 'Paket Voucher K-Vision', img: 'logo/logo-kvision.png' },
-            { id: 'nexmedia', name: 'Nex Parabola', desc: 'Voucher Nex Parabola', img: 'logo/logo-nexmedia.png' },
-            { id: 'transvision', name: 'Transvision', desc: 'Paket Voucher Transvision', img: 'logo/logo-transvision.png' },
-            { id: 'matrix', name: 'Matrix Garuda', desc: 'Paket Voucher Matrix Garuda', img: 'logo/logo-matrix.png' }
+            { id: 'kvision', name: 'K-Vision TV', desc: 'Paket K-Vision', img: 'logo-kvision.png' },
+            { id: 'nexmedia', name: 'Nex Parabola', desc: 'Voucher Nex', img: 'logo-nexmedia.png' },
+            { id: 'transvision', name: 'Transvision', desc: 'Voucher Transvision', img: 'logo-transvision.png' },
+            { id: 'matrix', name: 'Matrix Garuda', desc: 'Voucher Matrix', img: 'logo-matrix.png' }
         ]}
     };
 
     let currentSelectedCategory = "";
     let currentSelectedProvider = "";
-    let subTypeSelection = "reguler"; // Default untuk Telkomsel Reguler / By.U
+    let subTypeSelection = "reguler"; 
+    
+    // SISTEM LOGIN & AUTHENTIKASI FIREBASE
+    let confirmationResultObj = null;
 
-    // AUTO SLIDER BANNER GOLONGAN
-    let slideIndex = 0;
-    setInterval(() => {
-        const slider = document.getElementById('slider');
-        if(slider) {
-            slideIndex = slideIndex === 0 ? 1 : 0;
-            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            // Jika sudah login, tutup halaman login dan masuk home
+            document.getElementById('page-login').classList.remove('active');
+            
+            // Setel Nama
+            let nama = user.displayName || user.phoneNumber || "Pengguna Lytoos";
+            document.getElementById('user-name-display').innerText = nama;
+            
+            // Setel Foto Profil Asli Jika Ada
+            if(user.photoURL) {
+                document.getElementById('user-avatar-display').innerHTML = `<img src="${user.photoURL}" style="width:100%; height:100%; object-fit:cover;">`;
+            } else {
+                document.getElementById('user-avatar-display').innerHTML = `<i class="fa-solid fa-user" style="color:white;"></i>`;
+            }
+        } else {
+            // Jika belum login, sembunyikan semua dan paksa buka halaman login
+            document.querySelectorAll('.app-container > .page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-login').classList.add('active');
         }
-    }, 4000);
+    });
 
-    // SYSTEM TAB CONTROLLER BOTTOM NAVIGATION
+    function loginGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).catch(error => alert("Login Google Gagal: " + error.message));
+    }
+
+    function loginFacebook() {
+        const provider = new firebase.auth.FacebookAuthProvider();
+        auth.signInWithPopup(provider).catch(error => alert("Login Facebook Gagal: " + error.message));
+    }
+
+    function tampilFormHP() {
+        document.getElementById('phone-login-box').style.display = 'block';
+        if(!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { 'size': 'normal' });
+        }
+    }
+
+    function kirimOTP() {
+        const nomor = document.getElementById('phone-number').value.trim();
+        if(!nomor) return alert("Masukkan nomor HP!");
+        const appVerifier = window.recaptchaVerifier;
+        auth.signInWithPhoneNumber(nomor, appVerifier)
+            .then((confirmationResult) => {
+                confirmationResultObj = confirmationResult;
+                document.getElementById('btn-kirim-otp').style.display = 'none';
+                document.getElementById('otp-area').style.display = 'block';
+                alert("Kode OTP telah dikirim via SMS!");
+            }).catch((error) => { alert("Gagal mengirim OTP: " + error.message); });
+    }
+
+    function verifikasiOTP() {
+        const code = document.getElementById('otp-code').value.trim();
+        confirmationResultObj.confirm(code).catch((error) => { alert("Kode OTP Salah!"); });
+    }
+
+    function logoutAkun() {
+        if(confirm("Apakah Anda yakin ingin keluar?")) { auth.signOut(); }
+    }
+
+    // BANNER SLIDER
+    let slideIndex = 0;
+    setInterval(() => { const slider = document.getElementById('slider'); if(slider) { slideIndex = slideIndex === 0 ? 1 : 0; slider.style.transform = `translateX(-${slideIndex * 100}%)`; } }, 4000);
+
+    // SISTEM TAB
     function navigasiTab(target) {
+        if(!auth.currentUser) return; // Kunci tab jika belum login
         document.querySelectorAll('.app-container > .page').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-        
-        // Sembunyikan halaman sub dinamis jika menekan tab bawah
         document.getElementById('page-sub-kategori').classList.remove('active');
         document.getElementById('page-form-nominal').classList.remove('active');
         document.getElementById('page-struk').classList.remove('active');
-
         document.getElementById(`tab-${target}`).classList.add('active');
         document.getElementById(`btn-tab-${target}`).classList.add('active');
     }
 
-    // ALUR PINDAH LEVEL 1: MENEKAN KATEGORI DI HOME
+    // ALUR PINDAH LEVEL 1
     function bukaNavBertingkat(kategoriKey) {
         currentSelectedCategory = kategoriKey;
-
-        // Pengecualian Produk Tunggal Tanpa Pilih Operator (Contoh Token PLN langsung ke Form)
-        if(kategoriKey === 'token_pln') {
-            bukaFormNominalDirect('token_pln', 'pln', 'Token Listrik PLN');
-            return;
-        }
-        if(kategoriKey.startsWith('game_')) {
-            bukaFormNominalDirect('game', kategoriKey.replace('game_',''), 'Top Up ' + kategoriKey.replace('game_','').toUpperCase());
-            return;
-        }
-
         const routing = DATA_ROUTING[kategoriKey];
         if(!routing) return;
-
         document.getElementById('tab-home').classList.remove('active');
         document.getElementById('page-sub-kategori').classList.add('active');
         document.getElementById('sub-kategori-title').innerText = routing.title;
-
         let container = document.getElementById('sub-kategori-container');
         container.innerHTML = "";
-
         routing.items.forEach(item => {
-            container.innerHTML += `
-                <div class="sub-item-card" onclick="bukaFormAkhir('${item.id}', '${item.name}')">
-                    <div class="sub-item-left">
-                        <!-- Kotak ikon yang sudah dikunci ukurannya oleh CSS di atas -->
-                        <div class="sub-item-icon" style="width: 40px; height: 40px; background: transparent;">
-                            <img src="${item.img}" onerror="this.src='https://via.placeholder.com/40?text=IMG'">
-                        </div>
-                        <div class="sub-item-info">
-                            <h4 style="margin: 0;">${item.name}</h4>
-                            <p style="margin: 0;">${item.desc}</p>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right" style="color:#cbd5e0"></i>
-                </div>
-            `;
+            container.innerHTML += `<div class="sub-item-card" onclick="bukaFormAkhir('${item.id}', '${item.name}')"><div class="sub-item-left"><div class="sub-item-icon" style="width: 40px; height: 40px; background: transparent;"><img src="${item.img}" onerror="this.src='https://via.placeholder.com/40?text=IMG'"></div><div class="sub-item-info"><h4 style="margin: 0;">${item.name}</h4><p style="margin: 0;">${item.desc}</p></div></div><i class="fa-solid fa-chevron-right" style="color:#cbd5e0"></i></div>`;
         });
     }
 
-    // ALUR PINDAH LEVEL 2: MEMBUKA FORM DAN NOMINAL DARI SUB-KATEGORI
+    // ALUR PINDAH LEVEL 2
     function bukaFormAkhir(providerId, providerName) {
         currentSelectedProvider = providerId;
         document.getElementById('page-sub-kategori').classList.remove('active');
         document.getElementById('page-form-nominal').classList.add("active");
         document.getElementById('form-nominal-title').innerText = providerName;
-
-        // KODE BARU: Sapu bersih kolom nomor HP setiap kali masuk form!
-        document.getElementById('global-input-tujuan').value = "";
-
+        document.getElementById('global-input-tujuan').value = ""; // Sapu bersih
         let radioWrapper = document.getElementById('wrapper-radio-opsi');
         radioWrapper.style.display = (providerId === 'telkomsel') ? "block" : "none";
-        
         muatDaftarNominalFirestore(currentSelectedCategory, providerId);
     }
 
-    // FUNGSI JUMP BYPASS UNTUK PLN / GAME
+    // FUNGSI JUMP BYPASS (Untuk Game, PLN, dll yg tidak punya sub-kategori)
     function bukaFormNominalDirect(kategori, provider, title) {
         currentSelectedCategory = kategori;
         currentSelectedProvider = provider;
@@ -606,43 +466,30 @@
         document.getElementById('page-form-nominal').classList.add("active");
         document.getElementById('form-nominal-title').innerText = title;
         document.getElementById('wrapper-radio-opsi').style.display = "none";
-
-        // KODE BARU: Sapu bersih kolom nomor HP setiap kali masuk form!
-        document.getElementById('global-input-tujuan').value = "";
-
+        document.getElementById('global-input-tujuan').value = ""; // Sapu bersih
         muatDaftarNominalFirestore(kategori, provider);
     }
 
-    // SAKELAR TOGGLE PILIHAN RADIO TELKOMSEL VS BY.U
     function setRadioOpsi(id) {
         document.querySelectorAll('.radio-tile').forEach(r => r.classList.remove('selected'));
         document.getElementById(`rad-${id}`).classList.add('selected');
         subTypeSelection = id === 1 ? "reguler" : "byu";
-        // Reload nominal filter
         muatDaftarNominalFirestore(currentSelectedCategory, currentSelectedProvider);
     }
 
-    // CORE ENGINE: SEDOT DATA NOMINAL DARI GOOGLE FIRESTORE
+    // CORE ENGINE FIRESTORE
     function muatDaftarNominalFirestore(kategori, provider) {
         let container = document.getElementById('global-nominal-container');
-        container.innerHTML = "<div style='grid-column:1/3; text-align:center; padding:20px;'>Memuat daftar produk...</div>";
+        container.innerHTML = "<div style='grid-column:1/3; text-align:center; padding:20px;'><i class='fa-solid fa-spinner fa-spin'></i> Mencari produk...</div>";
 
-        // Query Menyedot data yang terstruktur
-        db.collection("products")
-          .where("kategori", "==", kategori)
-          .where("provider", "==", provider)
-          .get()
+        db.collection("products").where("provider", "==", provider).get()
           .then((querySnapshot) => {
               container.innerHTML = "";
-              if(querySnapshot.empty) {
-                  container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red; font-size:12px; padding:20px;'>Produk belum tersedia di sistem.</div>";
-                  return;
-              }
-
+              if(querySnapshot.empty) { container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red; font-size:12px; padding:20px;'>Produk belum tersedia di sistem.</div>"; return; }
               let listProduk = [];
               querySnapshot.forEach(doc => {
                   let pData = doc.data();
-                  // Saring Khusus Jika Ada Opsi By.U
+                  if(pData.kategori !== kategori) return;
                   if(provider === 'telkomsel') {
                       if(subTypeSelection === 'byu' && !pData.sku.toLowerCase().includes('byu')) return;
                       if(subTypeSelection === 'reguler' && pData.sku.toLowerCase().includes('byu')) return;
@@ -650,135 +497,67 @@
                   listProduk.push(pData);
               });
 
-              // Urutkan nominal harga terkecil ke terbesar
+              if(listProduk.length === 0) { container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red; font-size:12px; padding:20px;'>Produk kosong di kategori ini.</div>"; return; }
               listProduk.sort((a,b) => Number(a.harga) - Number(b.harga));
-
               listProduk.forEach(produk => {
-                  container.innerHTML += `
-                      <div class="nominal-card" onclick="eksekusiPembelianOrder('${produk.sku}', '${produk.nama_produk}', ${produk.harga})">
-                          <div class="nom-title">${produk.nama_produk}</div>
-                          <div>
-                              <div class="nom-price">Rp ${Number(produk.harga).toLocaleString('id-ID')}</div>
-                              <div class="nom-code">SKU: ${produk.sku}</div>
-                          </div>
-                      </div>
-                  `;
+                  container.innerHTML += `<div class="nominal-card" onclick="eksekusiPembelianOrder('${produk.sku}', '${produk.nama_produk}', ${produk.harga})"><div class="nom-title">${produk.nama_produk}</div><div><div class="nom-price">Rp ${Number(produk.harga).toLocaleString('id-ID')}</div><div class="nom-code">SKU: ${produk.sku}</div></div></div>`;
               });
           })
-          .catch(err => {
-              container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red;'>Gagal memuat data database.</div>";
-          });
+          .catch(err => { container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red;'>Gagal memuat data database.</div>"; });
     }
 
-    // EKSEKUSI PENEMBAKAN TRANSAKSI REAL-TIME KE APPS SCRIPT JEMBATAN MAKE
     function eksekusiPembelianOrder(sku, namaProduk, harga) {
         let nomorTujuan = document.getElementById('global-input-tujuan').value.trim();
-        if(!nomorTujuan) {
-            alert("Nomor HP / ID Target wajib dimasukkan terlebih dahulu!");
-            return;
-        }
+        if(!nomorTujuan) { alert("Nomor HP / ID Target wajib dimasukkan!"); return; }
+        if(!confirm(`Konfirmasi Beli:\n${namaProduk}\nTujuan: ${nomorTujuan}\nHarga: Rp ${harga.toLocaleString('id-ID')}\n\nLanjutkan?`)) return;
 
-        let tanya = confirm(`Konfirmasi Pembelian:\nProduk: ${namaProduk}\nTujuan: ${nomorTujuan}\nHarga: Rp ${harga.toLocaleString('id-ID')}\n\nLanjutkan?`);
-        if(!tanya) return;
-
-        // Masukkan URL Link deployment Google Apps Script Anda yang berakhiran /exec di bawah ini
         const LINK_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyawrjcfIRfr2Ch4WBIwhx2E-iUwG_Z3lcG79mjv574boopSURi_WgMsR3D26uYCZEY/exec";
+        alert("Transaksi Sedang Diproses...");
 
-        alert("Transaksi Sedang Diproses Kilat, Harap Tunggu Balasan Jembatan...");
-
-        fetch(LINK_APPS_SCRIPT_URL, {
-            method: "POST",
-            body: JSON.stringify({ sku: sku, tujuan: nomorTujuan })
-        })
+        fetch(LINK_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ sku: sku, tujuan: nomorTujuan }) })
         .then(res => res.json())
         .then(hasil => {
-            let msg = hasil.data ? hasil.data.message : JSON.stringify(hasil);
-            
-            // Catat transaksi sukses ke riwayat lokal untuk memunculkan cetak struk otomatis
             let txId = "LP" + new Date().getTime();
             let waktuStr = new Date().toLocaleString('id-ID');
-            
-            // Trigger Menampilkan Struk Nota Digital Watermark Ke Layar
             bukaStrukKertas(waktuStr, txId, namaProduk, nomorTujuan, harga, "SN-" + Math.floor(Math.random()*90000000+10000000));
-            
-            // Simpan riwayat dummy toko
             simpanRiwayatPenjualan(waktuStr, txId, namaProduk, nomorTujuan, harga);
-        })
-        .catch(err => {
-            alert("Koneksi Error Jembatan Gagal: " + err);
-        });
+        }).catch(err => { alert("Koneksi Error Jembatan Gagal: " + err); });
     }
 
-    // SISTEM CETAK BUKA STRUK NOTA DI LAYAR
     function bukaStrukKertas(waktu, id, produk, tujuan, harga, sn) {
         document.getElementById('page-form-nominal').classList.remove('active');
         document.getElementById('page-struk').classList.add('active');
-
-        document.getElementById('st-waktu').innerText = waktu;
-        document.getElementById('st-id').innerText = id;
-        document.getElementById('st-produk').innerText = produk;
-        document.getElementById('st-tujuan').innerText = tujuan;
-        document.getElementById('st-sn').innerText = sn;
-        document.getElementById('st-harga').innerText = "Rp " + harga.toLocaleString('id-ID');
+        document.getElementById('st-waktu').innerText = waktu; document.getElementById('st-id').innerText = id;
+        document.getElementById('st-produk').innerText = produk; document.getElementById('st-tujuan').innerText = tujuan;
+        document.getElementById('st-sn').innerText = sn; document.getElementById('st-harga').innerText = "Rp " + harga.toLocaleString('id-ID');
     }
 
-    function tutupStruk() {
-        document.getElementById('page-struk').classList.remove('active');
-        navigasiTab('home');
-    }
-
+    function tutupStruk() { document.getElementById('page-struk').classList.remove('active'); navigasiTab('home'); }
+    
     function simpanRiwayatPenjualan(waktu, id, produk, tujuan, harga) {
         let rc = document.getElementById('riwayat-container-list');
-        if(rc.innerHTML.includes('Belum ada riwayat')) rc.innerHTML = "";
-        
-        rc.innerHTML = `
-            <div class="sub-item-card" onclick="bukaStrukKertas('${waktu}','${id}','${produk}','${tujuan}',${harga}, 'SN-TERCETAK')">
-                <div class="sub-item-left">
-                    <div class="sub-item-icon" style="background:var(--success)"><i class="fa-solid fa-check"></i></div>
-                    <div class="sub-item-info">
-                        <h4>${produk}</h4>
-                        <p>Tujuan: ${tujuan} | ${waktu}</p>
-                    </div>
-                </div>
-                <div style="font-weight:700; font-size:13px; color:var(--success)">Rp ${harga.toLocaleString('id-ID')}</div>
-            </div>
-        ` + rc.innerHTML;
+        rc.innerHTML = `<div class="sub-item-card" onclick="bukaStrukKertas('${waktu}','${id}','${produk}','${tujuan}',${harga}, 'SN-TERCETAK')"><div class="sub-item-left"><div class="sub-item-icon" style="background:var(--success)"><i class="fa-solid fa-check" style="color:white; line-height:35px; margin:0 auto;"></i></div><div class="sub-item-info"><h4>${produk}</h4><p>Ke: ${tujuan}</p></div></div><div style="font-weight:700; font-size:13px; color:var(--success)">Rp ${harga.toLocaleString('id-ID')}</div></div>` + rc.innerHTML;
     }
 
-    // BACK TO PREVIOUS LAYOUT CONTROLLERS
-    function kembaliKeDua() {
-        document.getElementById('page-sub-kategori').classList.remove('active');
-        navigasiTab('home');
-    }
-
+    // LOGIKA PERBAIKAN TOMBOL KEMBALI (ANTI NYASAR)
+    function kembaliKeDua() { document.getElementById('page-sub-kategori').classList.remove('active'); navigasiTab('home'); }
+    
     function kembaliKeSub() {
         document.getElementById('page-form-nominal').classList.remove('active');
-        if(currentSelectedCategory === 'token_pln' || currentSelectedCategory.startsWith('game_')) {
-            navigasiTab('home');
-        } else {
+        // Kuncinya disini: Cek apakah kategori ini punya submenu provider atau tidak!
+        if (DATA_ROUTING[currentSelectedCategory]) {
             document.getElementById('page-sub-kategori').classList.add('active');
+        } else {
+            navigasiTab('home');
         }
     }
 
-    function triggerTopup() {
-        alert("Menu Pengisian Saldo Akun:\nSilakan hubungi WhatsApp CS untuk nomor rekening tujuan deposit otomatis.");
-    }
+    // LOGIKA SPLASH SCREEN
+    setTimeout(function() {
+        let splash = document.getElementById('splash-screen');
+        if (splash) { splash.classList.add('hide-splash'); setTimeout(() => { splash.style.display = 'none'; }, 600); }
+    }, 2000); 
 
-    function bukaCS() {
-        alert("Membuka Layanan Pelanggan (CS Telegram/WA Live): @LytoosPay_CS");
-    }
-
-        // LOGIKA ANIMASI LAYAR PEMBUKA (ANTI-MACET)
-        setTimeout(function() {
-            let splash = document.getElementById('splash-screen');
-            if (splash) {
-                splash.classList.add('hide-splash');
-            
-                // Hapus elemen dari latar belakang agar bisa diklik
-                setTimeout(() => { splash.style.display = 'none'; }, 600);
-            }
-        }, 2000); // Hitung mundur 2 detik langsung jalan!
 </script>
-
 </body>
 </html>
