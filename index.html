@@ -388,22 +388,53 @@
 
     function tampilFormHP() {
         document.getElementById('phone-login-box').style.display = 'block';
+        
+        // KODE BARU: Menggunakan reCAPTCHA tipe Invisible (Tidak terlihat / Rapi)
         if(!window.recaptchaVerifier) {
-            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', { 'size': 'normal' });
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btn-kirim-otp', {
+                'size': 'invisible'
+            });
         }
     }
 
     function kirimOTP() {
-        const nomor = document.getElementById('phone-number').value.trim();
+        let nomor = document.getElementById('phone-number').value.trim();
         if(!nomor) return alert("Masukkan nomor HP!");
+
+        // KODE BARU: Robot Pintar Pengubah Format Nomor
+        // Jika pembeli mengetik 0812..., otomatis diubah jadi +62812...
+        if (nomor.startsWith("0")) {
+            nomor = "+62" + nomor.substring(1);
+        } else if (nomor.startsWith("62")) {
+            nomor = "+" + nomor;
+        }
+
+        // Ubah teks tombol jadi loading agar pembeli tahu sistem sedang bekerja
+        let btnOtp = document.getElementById('btn-kirim-otp');
+        btnOtp.innerText = "Mengecek & Mengirim...";
+        btnOtp.disabled = true;
+
         const appVerifier = window.recaptchaVerifier;
+        
         auth.signInWithPhoneNumber(nomor, appVerifier)
             .then((confirmationResult) => {
                 confirmationResultObj = confirmationResult;
-                document.getElementById('btn-kirim-otp').style.display = 'none';
+                btnOtp.style.display = 'none';
                 document.getElementById('otp-area').style.display = 'block';
-                alert("Kode OTP telah dikirim via SMS!");
-            }).catch((error) => { alert("Gagal mengirim OTP: " + error.message); });
+                alert("Berhasil! Kode OTP telah dikirim ke " + nomor);
+            }).catch((error) => { 
+                btnOtp.innerText = "Kirim OTP";
+                btnOtp.disabled = false;
+                alert("Gagal mengirim OTP: \nPastikan format nomor benar atau coba lagi nanti."); 
+                console.error(error);
+                
+                // Reset anti-robot jika gagal
+                if(window.recaptchaVerifier) {
+                    window.recaptchaVerifier.render().then(function(widgetId) {
+                        grecaptcha.reset(widgetId);
+                    });
+                }
+            });
     }
 
     function verifikasiOTP() {
