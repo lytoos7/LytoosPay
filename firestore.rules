@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Katalog produk: boleh dibaca pengguna yang sudah login.
+    // Perubahan katalog hanya lewat Firebase Console / pemilik project.
+    match /products/{docId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Data akun (saldo & profil): hanya pemilik akun yang bersangkutan.
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Koleksi lain: tertutup.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

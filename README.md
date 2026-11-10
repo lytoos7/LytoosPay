@@ -54,6 +54,8 @@ rules Firestore hanya mengizinkan pengguna yang sudah login.
 Koleksi `products` sudah diisi 2026-11-10: **308 dokumen** — 306 dari berkas benih
 `data/products.json` di repo ini (ID dokumen = SKU) + 2 dokumen lama milik pemilik
 (`s5`, `s10` — pulsa Telkomsel 5rb & 10rb, dipertahankan; benih tidak menimpanya).
+Aturan akses database ada di `firestore.rules` (katalog hanya bisa dibaca pengguna yang sudah login; data akun hanya oleh pemiliknya) — aturan bawaan Firebase yang kedaluwarsa 25 Juli 2026 sudah diganti 10 Nov 2026.
+
 Untuk mengisi ulang / memperbarui massal, sunting `data/products.json` lalu impor
 kembali ke koleksi `products` dengan field `sku`, `nama_produk`, `provider`, `kategori`, `harga`.
 
