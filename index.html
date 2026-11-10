@@ -223,6 +223,16 @@
         .splash-logo { width: 140px; animation: pulseLogo 1.5s infinite; }
         @keyframes pulseLogo { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
         .hide-splash { opacity: 0; visibility: hidden; }
+
+        /* CETAK STRUK: hanya struk yang tercetak */
+        @media print {
+            body { background: #ffffff; }
+            .app-container { box-shadow: none; max-width: 100%; padding-bottom: 0; }
+            .app-container > *:not(#page-struk) { display: none !important; }
+            #page-struk .header-sub, #page-struk .receipt-actions { display: none !important; }
+            .receipt-page { padding: 0; background: #ffffff; }
+            .receipt-box { box-shadow: none; }
+        }
     </style>
 </head>
 <body>
@@ -277,7 +287,7 @@
             <div class="balance-info">
                 <div>
                     <span style="font-size: 11px; color: var(--text-muted); display:block;">Saldo Akun</span>
-                    <span class="balance-amount">Rp 0</span>
+                    <span class="balance-amount" id="home-saldo">Rp 0</span>
                 </div>
                 <div style="display:flex; gap:8px;">
                     <button class="w-btn" onclick="alert('Silakan transfer ke rekening admin untuk Top Up')"><i class="fa-solid fa-wallet"></i> Top Up</button>
@@ -351,8 +361,8 @@
     </div>
 
     <!-- HALAMAN TAB 2 & 3: TRANSAKSI & RIWAYAT -->
-    <div id="tab-transaksi" class="page"><div class="header-sub"><h3>Antrean Transaksi</h3></div><div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">Belum ada transaksi diproses.</div></div>
-    <div id="tab-riwayat" class="page"><div class="header-sub"><h3>Riwayat Transaksi</h3></div><div class="sub-list" id="riwayat-container-list"></div></div>
+    <div id="tab-transaksi" class="page"><div class="header-sub"><h3>Antrean Transaksi</h3></div><div class="sub-list" id="transaksi-container-list"></div></div>
+    <div id="tab-riwayat" class="page"><div class="header-sub"><h3>Riwayat Transaksi</h3></div><div class="sub-list" id="riwayat-container-list"><div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">Belum ada riwayat transaksi.</div></div></div>
 
     <!-- ========================================== -->
     <!-- HALAMAN TAB 4: PROFIL SUPER APLIKASI       -->
@@ -396,19 +406,19 @@
         <!-- 2. BAGIAN DETAIL PROFIL -->
         <div id="psec-detail" class="p-section">
             <div class="form-group"><label>Nama Lengkap</label><input type="text" id="df-nama" readonly></div>
-            <div class="form-group"><label>Nama Pengguna (Username)</label><input type="text" placeholder="Masukkan username unik..."></div>
+            <div class="form-group"><label>Nama Pengguna (Username)</label><input type="text" id="df-username" placeholder="Masukkan username unik..."></div>
             <div class="form-group"><label>Email</label><input type="email" id="df-email" readonly></div>
             <div class="form-group"><label>Nomor HP</label><input type="text" id="df-hp" readonly></div>
             <div class="form-group"><label>Jenis Kelamin</label>
-                <select><option>Pilih...</option><option>Laki-Laki</option><option>Perempuan</option></select>
+                <select id="df-gender"><option>Pilih...</option><option>Laki-Laki</option><option>Perempuan</option></select>
             </div>
-            <div class="form-group"><label>Alamat Lengkap</label><textarea rows="2" placeholder="Tulis alamat rumah/toko Anda..."></textarea></div>
+            <div class="form-group"><label>Alamat Lengkap</label><textarea rows="2" id="df-alamat" placeholder="Tulis alamat rumah/toko Anda..."></textarea></div>
             
             <div class="form-group" style="background: #eef2f7;"><label>Status Akun</label><input type="text" value="AKTIF (Terverifikasi)" style="color:var(--success); font-weight:800; background:transparent; border:none; padding:0;" readonly></div>
             <div class="form-group" style="background: #eef2f7;"><label>Jenis Akun</label><input type="text" value="Premium Agen PPOB" style="color:var(--primary); font-weight:800; background:transparent; border:none; padding:0;" readonly></div>
             <div class="form-group" style="background: #eef2f7;"><label>Tanggal Mendaftar</label><input type="text" id="df-tgl" style="font-weight:800; background:transparent; border:none; padding:0;" readonly></div>
             
-            <button class="auth-btn" style="background:var(--primary); color:white; margin-top:10px;">Simpan Perubahan</button>
+            <button class="auth-btn" style="background:var(--primary); color:white; margin-top:10px;" onclick="simpanProfil()">Simpan Perubahan</button>
         </div>
 
         <!-- 3. BAGIAN PENGATURAN -->
@@ -486,7 +496,7 @@
                 <div class="receipt-header">
                     <div class="receipt-logo">LYTOOSPAY</div>
                     <div style="font-size: 11px; color: var(--text-muted); margin-top:2px;">Toko Agen Pulsa Pintar</div>
-                    <span class="receipt-status-badge">BERHASIL</span>
+                    <span class="receipt-status-badge" id="st-status-badge">BERHASIL</span>
                 </div>
                 <div class="receipt-body">
                     <div class="receipt-row"><span class="r-label">Waktu</span><span class="r-val" id="st-waktu">-</span></div>
@@ -498,7 +508,7 @@
                 </div>
             </div>
             <div class="receipt-actions">
-                <button class="btn-receipt btn-share" onclick="alert('Membuka Fitur Bagikan')"><i class="fa-solid fa-share-nodes"></i> Bagikan</button>
+                <button class="btn-receipt btn-share" onclick="bagikanStruk()"><i class="fa-solid fa-share-nodes"></i> Bagikan</button>
                 <button class="btn-receipt btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak Struk</button>
             </div>
         </div>
@@ -540,19 +550,19 @@
             { id: 'telkomsel', name: 'Telkomsel', desc: 'Pulsa Telkomsel', img: 'logo/logo-telkomsel.png' },
             { id: 'by.u', name: 'by.U', desc: 'Pulsa by.U', img: 'logo/logo-byu.png' },
             { id: 'xl', name: 'XL Axiata', desc: 'Pulsa XL', img: 'logo/logo-xl.png' },
-            { id: 'axis', name: 'Axisa', desc: 'Pulsa Axis', img: 'logo/logo-axis.png' },
+            { id: 'axis', name: 'Axis', desc: 'Pulsa Axis', img: 'logo/logo-axis.png' },
             { id: 'indosat', name: 'Indosat Ooredoo', desc: 'Pulsa Indosat', img: 'logo/logo-indosat.png' },
             { id: 'tri', name: 'Tri Hutchison', desc: 'Pulsa Tri', img: 'logo/logo-tri.png' },
             { id: 'smartfren', name: 'Smartfren', desc: 'Pulsa Smartfren', img: 'logo/logo-smartfren.png' }
         ]},
         'internet': { title: 'Pilih Paket Internet', items: [
-            { id: 'telkomsel_data', name: 'Paket Telkomsel', desc: 'Flash / OmG', img: 'logo/logo-telkomsel-data.png' },
-            { id: 'byu_data', name: 'Paket by.U', desc: 'Kuota Reguler', img: 'logo/logo-byu-data.png' },
-            { id: 'xl_data', name: 'Paket XL', desc: 'Xtra Combo', img: 'logo/logo-xl-data.png' },
-            { id: 'axis_data', name: 'Paket Axis', desc: 'Bronet Kuota', img: 'logo/logo-axis-data.png' },
-            { id: 'indosat_data', name: 'Paket Indosat', desc: 'Freedom Combo', img: 'logo/logo-indosat-data.png' },
-            { id: 'tri_data', name: 'Paket Tri', desc: 'Kuota Reguler', img: 'logo/logo-tri-data.png' },
-            { id: 'smartfren_data', name: 'Paket Smartfren', desc: 'Volume Based', img: 'logo/logo-smartfren-data.png' }
+            { id: 'telkomsel_data', name: 'Paket Telkomsel', desc: 'Flash / OmG', img: 'logo/logo-telkomsel.png' },
+            { id: 'byu_data', name: 'Paket by.U', desc: 'Kuota Reguler', img: 'logo/logo-byu.png' },
+            { id: 'xl_data', name: 'Paket XL', desc: 'Xtra Combo', img: 'logo/logo-xl.png' },
+            { id: 'axis_data', name: 'Paket Axis', desc: 'Bronet Kuota', img: 'logo/logo-axis.png' },
+            { id: 'indosat_data', name: 'Paket Indosat', desc: 'Freedom Combo', img: 'logo/logo-indosat.png' },
+            { id: 'tri_data', name: 'Paket Tri', desc: 'Kuota Reguler', img: 'logo/logo-tri.png' },
+            { id: 'smartfren_data', name: 'Paket Smartfren', desc: 'Volume Based', img: 'logo/logo-smartfren.png' }
         ]},
         'telpon': { title: 'Pilih Paket Telpon', items: [
             { id: 'telkomsel_telp', name: 'Telkomsel Telpon', desc: 'Nelpon Murah', img: 'logo/logo-telkomsel.png' },
@@ -629,6 +639,17 @@
             document.getElementById('home-avatar').innerHTML = avaURL;
             document.getElementById('prof-large-avatar').innerHTML = avaLargeURL;
 
+            // Saldo akun dari Firestore (dokumen users/{uid}, field 'saldo'); tetap Rp 0 bila belum ada
+            db.collection('users').doc(user.uid).onSnapshot((docSnap) => {
+                const elSaldo = document.getElementById('home-saldo');
+                if (elSaldo && docSnap.exists && docSnap.data().saldo !== undefined) {
+                    elSaldo.innerText = "Rp " + Number(docSnap.data().saldo).toLocaleString('id-ID');
+                }
+            }, () => { /* abaikan: saldo tetap tampilan awal */ });
+
+            muatProfilTersimpan();
+            renderRiwayat();
+
         } else {
             // Paksa masuk halaman login
             document.querySelectorAll('.app-container > .page').forEach(p => p.classList.remove('active'));
@@ -672,7 +693,35 @@
 
     function verifikasiOTP() {
         const code = document.getElementById('otp-code').value.trim();
+        if (!confirmationResultObj) { alert("Minta kode OTP dulu lewat tombol Kirim OTP."); return; }
+        if (!code) { alert("Masukkan kode OTP!"); return; }
         confirmationResultObj.confirm(code).catch(() => alert("Kode OTP Salah / Kadaluarsa!"));
+    }
+
+    // Simpan perubahan profil (lokal + Firestore users/{uid} bila memungkinkan)
+    function simpanProfil() {
+        const profil = {
+            username: document.getElementById('df-username').value.trim(),
+            gender: document.getElementById('df-gender').value,
+            alamat: document.getElementById('df-alamat').value.trim()
+        };
+        try { localStorage.setItem('lytoospay_profil', JSON.stringify(profil)); } catch (e) {}
+        const user = auth.currentUser;
+        if (user) {
+            db.collection('users').doc(user.uid).set(profil, { merge: true })
+              .catch(() => { /* tersimpan lokal saja bila Firestore menolak */ });
+        }
+        alert("Perubahan profil tersimpan.");
+    }
+
+    function muatProfilTersimpan() {
+        try {
+            const profil = JSON.parse(localStorage.getItem('lytoospay_profil') || 'null');
+            if (!profil) return;
+            if (profil.username) document.getElementById('df-username').value = profil.username;
+            if (profil.gender) document.getElementById('df-gender').value = profil.gender;
+            if (profil.alamat) document.getElementById('df-alamat').value = profil.alamat;
+        } catch (e) {}
     }
 
     function loginGoogle() { auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => alert("Gagal Login Google: " + e.message)); }
@@ -681,7 +730,7 @@
 
     // BANNER SLIDER
     let slideIndex = 0;
-    setInterval(() => { const slider = document.getElementById('slider'); if(slider) { slideIndex = slideIndex === 0 ? 1 : 0; slider.style.transform = `translateX(-${slideIndex * 100}%)`; } }, 4000);
+    setInterval(() => { const slider = document.getElementById('slider'); if(slider && slider.children.length > 1) { slideIndex = (slideIndex + 1) % slider.children.length; slider.style.transform = `translateX(-${slideIndex * 100}%)`; } }, 4000);
 
     // ==========================================
     // SISTEM NAVIGASI BAWAH & ALUR TRANSAKSI
@@ -696,6 +745,8 @@
         
         document.getElementById(`tab-${target}`).classList.add('active');
         document.getElementById(`btn-tab-${target}`).classList.add('active');
+        if (target === 'transaksi') renderTransaksi();
+        if (target === 'riwayat') renderRiwayat();
     }
 
     function bukaNavBertingkat(kategoriKey) {
@@ -781,8 +832,9 @@
               if(listProduk.length === 0) { container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red; font-size:12px; padding:20px;'>Produk kosong di kategori ini.</div>"; return; }
               
               listProduk.sort((a,b) => Number(a.harga) - Number(b.harga));
-              listProduk.forEach(produk => {
-                  container.innerHTML += `<div class="nominal-card" onclick="eksekusiPembelianOrder('${produk.sku}', '${produk.nama_produk}', ${produk.harga})"><div class="nom-title">${produk.nama_produk}</div><div><div class="nom-price">Rp ${Number(produk.harga).toLocaleString('id-ID')}</div><div class="nom-code">SKU: ${produk.sku}</div></div></div>`;
+              window._produkSaatIni = listProduk;
+              listProduk.forEach((produk, idx) => {
+                  container.innerHTML += `<div class="nominal-card" onclick="pilihProduk(${idx})"><div class="nom-title">${produk.nama_produk}</div><div><div class="nom-price">Rp ${Number(produk.harga).toLocaleString('id-ID')}</div><div class="nom-code">SKU: ${produk.sku}</div></div></div>`;
               });
           })
           .catch(err => { container.innerHTML = "<div style='grid-column:1/3; text-align:center; color:red;'>Gagal memuat database.</div>"; });
@@ -791,6 +843,12 @@
     // ==========================================
     // TRANSAKSI & STRUK KERTAS
     // ==========================================
+    function pilihProduk(idx) {
+        const produk = (window._produkSaatIni || [])[idx];
+        if (!produk) return;
+        eksekusiPembelianOrder(produk.sku, produk.nama_produk, Number(produk.harga));
+    }
+
     function eksekusiPembelianOrder(sku, namaProduk, harga) {
         let nomorTujuan = document.getElementById('global-input-tujuan').value.trim();
         if(!nomorTujuan) { alert("Nomor HP / ID Target wajib dimasukkan!"); return; }
@@ -800,29 +858,107 @@
         alert("Transaksi Sedang Diproses...");
 
         fetch(LINK_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ sku: sku, tujuan: nomorTujuan }) })
-        .then(res => res.json())
-        .then(hasil => {
-            let txId = "LP" + new Date().getTime();
+        .then(res => res.text())
+        .then(teks => {
+            let hasil;
+            try { hasil = JSON.parse(teks); }
+            catch (e) { alert("Jawaban server tidak dapat dibaca. Transaksi TIDAK dicatat sebagai berhasil."); console.error("Jawaban server:", teks); return; }
+
+            // Bentuk jawaban jembatan (Digiflazz via Apps Script): { data: { status, message, sn, ref_id, ... } }
+            const data = (hasil && hasil.data) ? hasil.data : (hasil || {});
+            const statusMentah = String(data.status || "").toLowerCase();
+            const pesan = data.message || hasil.message || "";
+            let txId = data.ref_id || ("LP" + new Date().getTime());
             let waktuStr = new Date().toLocaleString('id-ID');
-            bukaStrukKertas(waktuStr, txId, namaProduk, nomorTujuan, harga, "SN-" + Math.floor(Math.random()*90000000+10000000));
-            simpanRiwayatPenjualan(waktuStr, txId, namaProduk, nomorTujuan, harga);
+
+            if (statusMentah.includes("gagal") || statusMentah === "failed" || statusMentah === "error") {
+                alert("TRANSAKSI GAGAL" + (pesan ? ": " + pesan : ""));
+                simpanRiwayatPenjualan(waktuStr, txId, namaProduk, nomorTujuan, harga, "GAGAL", data.sn || "-");
+                return;
+            }
+
+            const statusStruk = (statusMentah.includes("pending") || statusMentah.includes("proses")) ? "PENDING" : "BERHASIL";
+            const snAsli = data.sn || data.serial_number || "-";
+            bukaStrukKertas(waktuStr, txId, namaProduk, nomorTujuan, harga, snAsli, statusStruk);
+            simpanRiwayatPenjualan(waktuStr, txId, namaProduk, nomorTujuan, harga, statusStruk, snAsli);
         }).catch(err => { alert("Koneksi ke Jembatan Gagal: " + err); });
     }
 
-    function bukaStrukKertas(waktu, id, produk, tujuan, harga, sn) {
-        document.getElementById('page-form-nominal').classList.remove('active');
+    function bukaStrukKertas(waktu, id, produk, tujuan, harga, sn, status) {
+        document.querySelectorAll('.app-container > .page').forEach(pg => pg.classList.remove('active'));
         document.getElementById('page-struk').classList.add('active');
         document.getElementById('st-waktu').innerText = waktu; document.getElementById('st-id').innerText = id;
         document.getElementById('st-produk').innerText = produk; document.getElementById('st-tujuan').innerText = tujuan;
-        document.getElementById('st-sn').innerText = sn; document.getElementById('st-harga').innerText = "Rp " + harga.toLocaleString('id-ID');
+        document.getElementById('st-sn').innerText = sn; document.getElementById('st-harga').innerText = "Rp " + Number(harga).toLocaleString('id-ID');
+        const badge = document.getElementById('st-status-badge');
+        const st = (status || "BERHASIL").toUpperCase();
+        badge.innerText = st;
+        badge.style.background = st === "PENDING" ? "rgba(237, 137, 54, 0.15)" : (st === "GAGAL" ? "rgba(220, 53, 69, 0.15)" : "rgba(40, 167, 69, 0.15)");
+        badge.style.color = st === "PENDING" ? "#dd6b20" : (st === "GAGAL" ? "var(--danger)" : "var(--success)");
+    }
+
+    function bagikanStruk() {
+        const teksStruk = [
+            "STRUK LYTOOSPAY (" + document.getElementById('st-status-badge').innerText + ")",
+            "Waktu: " + document.getElementById('st-waktu').innerText,
+            "ID Transaksi: " + document.getElementById('st-id').innerText,
+            "Produk: " + document.getElementById('st-produk').innerText,
+            "Tujuan: " + document.getElementById('st-tujuan').innerText,
+            "SN: " + document.getElementById('st-sn').innerText,
+            "Total Bayar: " + document.getElementById('st-harga').innerText
+        ].join("\n");
+        if (navigator.share) {
+            navigator.share({ title: "Struk LytoosPay", text: teksStruk }).catch(() => {});
+        } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(teksStruk).then(() => alert("Teks struk tersalin. Tempel untuk membagikannya."));
+        } else {
+            alert(teksStruk);
+        }
     }
 
     function tutupStruk() { document.getElementById('page-struk').classList.remove('active'); navigasiTab('home'); }
     
-    function simpanRiwayatPenjualan(waktu, id, produk, tujuan, harga) {
-        let rc = document.getElementById('riwayat-container-list');
-        rc.innerHTML = `<div class="sub-item-card" onclick="bukaStrukKertas('${waktu}','${id}','${produk}','${tujuan}',${harga}, 'SN-TERCETAK')"><div class="sub-item-left"><div class="sub-item-icon" style="background:var(--success)"><i class="fa-solid fa-check" style="color:white; font-size:16px;"></i></div><div class="sub-item-info"><h4 style="margin:0;">${produk}</h4><p style="margin:0;">Ke: ${tujuan}</p></div></div><div style="font-weight:700; font-size:13px; color:var(--success)">Rp ${harga.toLocaleString('id-ID')}</div></div>` + rc.innerHTML;
+    // Riwayat tersimpan di perangkat (localStorage) agar tidak hilang saat aplikasi ditutup/dimuat ulang
+    let LP_RIWAYAT = [];
+    try { LP_RIWAYAT = JSON.parse(localStorage.getItem('lytoospay_riwayat') || '[]'); if (!Array.isArray(LP_RIWAYAT)) LP_RIWAYAT = []; } catch (e) { LP_RIWAYAT = []; }
+
+    function simpanRiwayatPenjualan(waktu, id, produk, tujuan, harga, status, sn) {
+        LP_RIWAYAT.unshift({ waktu: waktu, id: id, produk: produk, tujuan: tujuan, harga: Number(harga), status: (status || "BERHASIL"), sn: sn || "-" });
+        if (LP_RIWAYAT.length > 100) LP_RIWAYAT = LP_RIWAYAT.slice(0, 100);
+        try { localStorage.setItem('lytoospay_riwayat', JSON.stringify(LP_RIWAYAT)); } catch (e) {}
+        renderRiwayat();
     }
+
+    function kartuRiwayat(item, idx) {
+        const sukses = item.status === "BERHASIL";
+        const pending = item.status === "PENDING";
+        const warna = sukses ? "var(--success)" : (pending ? "#dd6b20" : "var(--danger)");
+        const ikon = sukses ? "fa-check" : (pending ? "fa-hourglass-half" : "fa-xmark");
+        return `<div class="sub-item-card" onclick="bukaStrukDariRiwayat(${idx})"><div class="sub-item-left"><div class="sub-item-icon" style="background:${warna}"><i class="fa-solid ${ikon}" style="color:white; font-size:16px;"></i></div><div class="sub-item-info"><h4 style="margin:0;">${item.produk}</h4><p style="margin:0;">Ke: ${item.tujuan} · ${item.status}</p></div></div><div style="font-weight:700; font-size:13px; color:${warna}">Rp ${Number(item.harga).toLocaleString('id-ID')}</div></div>`;
+    }
+
+    function renderRiwayat() {
+        let rc = document.getElementById('riwayat-container-list');
+        if (!rc) return;
+        if (!LP_RIWAYAT.length) { rc.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">Belum ada riwayat transaksi.</div>`; return; }
+        rc.innerHTML = LP_RIWAYAT.map((item, idx) => kartuRiwayat(item, idx)).join("");
+    }
+
+    function renderTransaksi() {
+        let tc = document.getElementById('transaksi-container-list');
+        if (!tc) return;
+        const antre = LP_RIWAYAT.map((item, idx) => ({ item: item, idx: idx })).filter(x => x.item.status === "PENDING");
+        if (!antre.length) { tc.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 13px;">Belum ada transaksi diproses.</div>`; return; }
+        tc.innerHTML = antre.map(x => kartuRiwayat(x.item, x.idx)).join("");
+    }
+
+    function bukaStrukDariRiwayat(idx) {
+        const item = LP_RIWAYAT[idx];
+        if (!item) return;
+        bukaStrukKertas(item.waktu, item.id, item.produk, item.tujuan, item.harga, item.sn, item.status);
+    }
+
+    renderRiwayat();
 
     // LOGIKA PERBAIKAN TOMBOL KEMBALI
     function kembaliKeDua() { document.getElementById('page-sub-kategori').classList.remove('active'); navigasiTab('home'); }
