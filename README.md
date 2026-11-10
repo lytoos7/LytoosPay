@@ -48,3 +48,17 @@ Konfigurasi Firebase web (`lytoospay-66a22`) dan URL jembatan Apps Script berada
 bagian bawah `index.html`. Kunci API web Firebase memang kunci publik untuk klien;
 perlindungan data diatur lewat Firebase Security Rules & Authentication, jadi pastikan
 rules Firestore hanya mengizinkan pengguna yang sudah login.
+
+## Database (Firestore)
+
+Koleksi `products` sudah diisi 2026-11-10: **308 dokumen** — 306 dari berkas benih
+`data/products.json` di repo ini (ID dokumen = SKU) + 2 dokumen lama milik pemilik
+(`s5`, `s10` — pulsa Telkomsel 5rb & 10rb, dipertahankan; benih tidak menimpanya).
+Untuk mengisi ulang / memperbarui massal, sunting `data/products.json` lalu impor
+kembali ke koleksi `products` dengan field `sku`, `nama_produk`, `provider`, `kategori`, `harga`.
+
+Penting soal SKU: SKU pada benih mengikuti pola umum Digiflazz. Sebelum transaksi
+sungguhan dibuka ke publik, cocokkan tiap SKU dengan daftar harga (pricelist) di akun
+Digiflazz pemilik — SKU yang tidak ada di pricelist akan ditolak provider saat pembelian.
+Harga tagihan pascabayar pada benih adalah biaya admin; nominal akhirnya mengikuti
+tagihan asli dari provider.

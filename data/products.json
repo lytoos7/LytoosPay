@@ -1,0 +1,2144 @@
+[
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL15",
+  "nama_produk": "Pulsa Telkomsel 15.000",
+  "harga": 16000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL20",
+  "nama_produk": "Pulsa Telkomsel 20.000",
+  "harga": 21000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL25",
+  "nama_produk": "Pulsa Telkomsel 25.000",
+  "harga": 26000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL30",
+  "nama_produk": "Pulsa Telkomsel 30.000",
+  "harga": 31000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL50",
+  "nama_produk": "Pulsa Telkomsel 50.000",
+  "harga": 51000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL75",
+  "nama_produk": "Pulsa Telkomsel 75.000",
+  "harga": 76000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "telkomsel",
+  "sku": "TSEL100",
+  "nama_produk": "Pulsa Telkomsel 100.000",
+  "harga": 101000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU5",
+  "nama_produk": "Pulsa by.U 5.000",
+  "harga": 6000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU10",
+  "nama_produk": "Pulsa by.U 10.000",
+  "harga": 11000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU15",
+  "nama_produk": "Pulsa by.U 15.000",
+  "harga": 16000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU20",
+  "nama_produk": "Pulsa by.U 20.000",
+  "harga": 21000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU25",
+  "nama_produk": "Pulsa by.U 25.000",
+  "harga": 26000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU30",
+  "nama_produk": "Pulsa by.U 30.000",
+  "harga": 31000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU50",
+  "nama_produk": "Pulsa by.U 50.000",
+  "harga": 50500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU75",
+  "nama_produk": "Pulsa by.U 75.000",
+  "harga": 75500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "by.u",
+  "sku": "BYU100",
+  "nama_produk": "Pulsa by.U 100.000",
+  "harga": 100500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL5",
+  "nama_produk": "Pulsa XL 5.000",
+  "harga": 6000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL10",
+  "nama_produk": "Pulsa XL 10.000",
+  "harga": 11000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL15",
+  "nama_produk": "Pulsa XL 15.000",
+  "harga": 15500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL20",
+  "nama_produk": "Pulsa XL 20.000",
+  "harga": 20500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL25",
+  "nama_produk": "Pulsa XL 25.000",
+  "harga": 25500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL30",
+  "nama_produk": "Pulsa XL 30.000",
+  "harga": 30500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL50",
+  "nama_produk": "Pulsa XL 50.000",
+  "harga": 50500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL75",
+  "nama_produk": "Pulsa XL 75.000",
+  "harga": 75500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "xl",
+  "sku": "XL100",
+  "nama_produk": "Pulsa XL 100.000",
+  "harga": 100500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS5",
+  "nama_produk": "Pulsa Axis 5.000",
+  "harga": 5500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS10",
+  "nama_produk": "Pulsa Axis 10.000",
+  "harga": 10500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS15",
+  "nama_produk": "Pulsa Axis 15.000",
+  "harga": 15500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS20",
+  "nama_produk": "Pulsa Axis 20.000",
+  "harga": 20500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS25",
+  "nama_produk": "Pulsa Axis 25.000",
+  "harga": 25500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS30",
+  "nama_produk": "Pulsa Axis 30.000",
+  "harga": 30500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS50",
+  "nama_produk": "Pulsa Axis 50.000",
+  "harga": 50000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS75",
+  "nama_produk": "Pulsa Axis 75.000",
+  "harga": 75000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "axis",
+  "sku": "AXIS100",
+  "nama_produk": "Pulsa Axis 100.000",
+  "harga": 100000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT5",
+  "nama_produk": "Pulsa Indosat 5.000",
+  "harga": 6000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT10",
+  "nama_produk": "Pulsa Indosat 10.000",
+  "harga": 11000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT15",
+  "nama_produk": "Pulsa Indosat 15.000",
+  "harga": 16000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT20",
+  "nama_produk": "Pulsa Indosat 20.000",
+  "harga": 21000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT25",
+  "nama_produk": "Pulsa Indosat 25.000",
+  "harga": 26000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT30",
+  "nama_produk": "Pulsa Indosat 30.000",
+  "harga": 31000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT50",
+  "nama_produk": "Pulsa Indosat 50.000",
+  "harga": 50500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT75",
+  "nama_produk": "Pulsa Indosat 75.000",
+  "harga": 75500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "indosat",
+  "sku": "ISAT100",
+  "nama_produk": "Pulsa Indosat 100.000",
+  "harga": 100500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI5",
+  "nama_produk": "Pulsa Tri 5.000",
+  "harga": 5500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI10",
+  "nama_produk": "Pulsa Tri 10.000",
+  "harga": 10500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI15",
+  "nama_produk": "Pulsa Tri 15.000",
+  "harga": 15000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI20",
+  "nama_produk": "Pulsa Tri 20.000",
+  "harga": 20000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI25",
+  "nama_produk": "Pulsa Tri 25.000",
+  "harga": 25000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI30",
+  "nama_produk": "Pulsa Tri 30.000",
+  "harga": 30000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI50",
+  "nama_produk": "Pulsa Tri 50.000",
+  "harga": 50000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI75",
+  "nama_produk": "Pulsa Tri 75.000",
+  "harga": 75000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "tri",
+  "sku": "TRI100",
+  "nama_produk": "Pulsa Tri 100.000",
+  "harga": 100000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF5",
+  "nama_produk": "Pulsa Smartfren 5.000",
+  "harga": 5500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF10",
+  "nama_produk": "Pulsa Smartfren 10.000",
+  "harga": 10500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF15",
+  "nama_produk": "Pulsa Smartfren 15.000",
+  "harga": 15500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF20",
+  "nama_produk": "Pulsa Smartfren 20.000",
+  "harga": 20500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF25",
+  "nama_produk": "Pulsa Smartfren 25.000",
+  "harga": 25500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF30",
+  "nama_produk": "Pulsa Smartfren 30.000",
+  "harga": 30500
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF50",
+  "nama_produk": "Pulsa Smartfren 50.000",
+  "harga": 50000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF75",
+  "nama_produk": "Pulsa Smartfren 75.000",
+  "harga": 75000
+ },
+ {
+  "kategori": "pulsa",
+  "provider": "smartfren",
+  "sku": "SF100",
+  "nama_produk": "Pulsa Smartfren 100.000",
+  "harga": 100000
+ },
+ {
+  "kategori": "internet",
+  "provider": "telkomsel_data",
+  "sku": "TSELD1",
+  "nama_produk": "Paket Telkomsel - Internet OMG! 2GB / 30 hari",
+  "harga": 27000
+ },
+ {
+  "kategori": "internet",
+  "provider": "telkomsel_data",
+  "sku": "TSELD2",
+  "nama_produk": "Paket Telkomsel - Internet OMG! 5GB / 30 hari",
+  "harga": 47000
+ },
+ {
+  "kategori": "internet",
+  "provider": "telkomsel_data",
+  "sku": "TSELD3",
+  "nama_produk": "Paket Telkomsel - Flash 10GB / 30 hari",
+  "harga": 72000
+ },
+ {
+  "kategori": "internet",
+  "provider": "telkomsel_data",
+  "sku": "TSELD4",
+  "nama_produk": "Paket Telkomsel - Flash 25GB / 30 hari",
+  "harga": 122000
+ },
+ {
+  "kategori": "internet",
+  "provider": "telkomsel_data",
+  "sku": "TSELD5",
+  "nama_produk": "Paket Telkomsel - Flash 50GB / 30 hari",
+  "harga": 187000
+ },
+ {
+  "kategori": "internet",
+  "provider": "telkomsel_data",
+  "sku": "TSELD6",
+  "nama_produk": "Paket Telkomsel - Flash 100GB / 30 hari",
+  "harga": 297000
+ },
+ {
+  "kategori": "internet",
+  "provider": "byu_data",
+  "sku": "BYUD1",
+  "nama_produk": "Paket by.U - Kuota 3GB / 14 hari",
+  "harga": 16000
+ },
+ {
+  "kategori": "internet",
+  "provider": "byu_data",
+  "sku": "BYUD2",
+  "nama_produk": "Paket by.U - Kuota 10GB / 30 hari",
+  "harga": 36000
+ },
+ {
+  "kategori": "internet",
+  "provider": "byu_data",
+  "sku": "BYUD3",
+  "nama_produk": "Paket by.U - Kuota 25GB / 30 hari",
+  "harga": 66000
+ },
+ {
+  "kategori": "internet",
+  "provider": "byu_data",
+  "sku": "BYUD4",
+  "nama_produk": "Paket by.U - Kuota 50GB / 30 hari",
+  "harga": 106000
+ },
+ {
+  "kategori": "internet",
+  "provider": "byu_data",
+  "sku": "BYUD5",
+  "nama_produk": "Paket by.U - Kuota 100GB / 30 hari",
+  "harga": 186000
+ },
+ {
+  "kategori": "internet",
+  "provider": "xl_data",
+  "sku": "XLD1",
+  "nama_produk": "Paket XL - Xtra Combo 5GB / 30 hari",
+  "harga": 32000
+ },
+ {
+  "kategori": "internet",
+  "provider": "xl_data",
+  "sku": "XLD2",
+  "nama_produk": "Paket XL - Xtra Combo 10GB / 30 hari",
+  "harga": 52000
+ },
+ {
+  "kategori": "internet",
+  "provider": "xl_data",
+  "sku": "XLD3",
+  "nama_produk": "Paket XL - Xtra Combo 20GB / 30 hari",
+  "harga": 82000
+ },
+ {
+  "kategori": "internet",
+  "provider": "xl_data",
+  "sku": "XLD4",
+  "nama_produk": "Paket XL - Xtra Combo 40GB / 30 hari",
+  "harga": 127000
+ },
+ {
+  "kategori": "internet",
+  "provider": "xl_data",
+  "sku": "XLD5",
+  "nama_produk": "Paket XL - Xtra Combo 80GB / 30 hari",
+  "harga": 197000
+ },
+ {
+  "kategori": "internet",
+  "provider": "axis_data",
+  "sku": "AXISD1",
+  "nama_produk": "Paket Axis - Bronet 3GB / 30 hari",
+  "harga": 21000
+ },
+ {
+  "kategori": "internet",
+  "provider": "axis_data",
+  "sku": "AXISD2",
+  "nama_produk": "Paket Axis - Bronet 8GB / 30 hari",
+  "harga": 36000
+ },
+ {
+  "kategori": "internet",
+  "provider": "axis_data",
+  "sku": "AXISD3",
+  "nama_produk": "Paket Axis - Bronet 16GB / 30 hari",
+  "harga": 56000
+ },
+ {
+  "kategori": "internet",
+  "provider": "axis_data",
+  "sku": "AXISD4",
+  "nama_produk": "Paket Axis - Bronet 32GB / 30 hari",
+  "harga": 86000
+ },
+ {
+  "kategori": "internet",
+  "provider": "axis_data",
+  "sku": "AXISD5",
+  "nama_produk": "Paket Axis - Bronet 64GB / 30 hari",
+  "harga": 136000
+ },
+ {
+  "kategori": "internet",
+  "provider": "indosat_data",
+  "sku": "ISATD1",
+  "nama_produk": "Paket Indosat - Freedom Combo 6GB / 30 hari",
+  "harga": 32000
+ },
+ {
+  "kategori": "internet",
+  "provider": "indosat_data",
+  "sku": "ISATD2",
+  "nama_produk": "Paket Indosat - Freedom Combo 12GB / 30 hari",
+  "harga": 52000
+ },
+ {
+  "kategori": "internet",
+  "provider": "indosat_data",
+  "sku": "ISATD3",
+  "nama_produk": "Paket Indosat - Freedom Combo 24GB / 30 hari",
+  "harga": 82000
+ },
+ {
+  "kategori": "internet",
+  "provider": "indosat_data",
+  "sku": "ISATD4",
+  "nama_produk": "Paket Indosat - Freedom Combo 48GB / 30 hari",
+  "harga": 132000
+ },
+ {
+  "kategori": "internet",
+  "provider": "indosat_data",
+  "sku": "ISATD5",
+  "nama_produk": "Paket Indosat - Freedom Jumbo 100GB / 30 hari",
+  "harga": 207000
+ },
+ {
+  "kategori": "internet",
+  "provider": "tri_data",
+  "sku": "TRID1",
+  "nama_produk": "Paket Tri - Kuota Happy 5GB / 30 hari",
+  "harga": 26000
+ },
+ {
+  "kategori": "internet",
+  "provider": "tri_data",
+  "sku": "TRID2",
+  "nama_produk": "Paket Tri - Kuota Happy 12GB / 30 hari",
+  "harga": 47000
+ },
+ {
+  "kategori": "internet",
+  "provider": "tri_data",
+  "sku": "TRID3",
+  "nama_produk": "Paket Tri - Kuota Happy 30GB / 30 hari",
+  "harga": 77000
+ },
+ {
+  "kategori": "internet",
+  "provider": "tri_data",
+  "sku": "TRID4",
+  "nama_produk": "Paket Tri - Kuota Happy 60GB / 30 hari",
+  "harga": 117000
+ },
+ {
+  "kategori": "internet",
+  "provider": "tri_data",
+  "sku": "TRID5",
+  "nama_produk": "Paket Tri - Kuota Happy 117GB / 30 hari",
+  "harga": 177000
+ },
+ {
+  "kategori": "internet",
+  "provider": "smartfren_data",
+  "sku": "SFD1",
+  "nama_produk": "Paket Smartfren - Volume Based 6GB / 30 hari",
+  "harga": 26000
+ },
+ {
+  "kategori": "internet",
+  "provider": "smartfren_data",
+  "sku": "SFD2",
+  "nama_produk": "Paket Smartfren - Volume Based 15GB / 30 hari",
+  "harga": 46000
+ },
+ {
+  "kategori": "internet",
+  "provider": "smartfren_data",
+  "sku": "SFD3",
+  "nama_produk": "Paket Smartfren - Volume Based 30GB / 30 hari",
+  "harga": 76000
+ },
+ {
+  "kategori": "internet",
+  "provider": "smartfren_data",
+  "sku": "SFD4",
+  "nama_produk": "Paket Smartfren - Unlimited Nonstop 24GB / 28 hari",
+  "harga": 76000
+ },
+ {
+  "kategori": "internet",
+  "provider": "smartfren_data",
+  "sku": "SFD5",
+  "nama_produk": "Paket Smartfren - Unlimited Harian / 28 hari",
+  "harga": 86000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "telkomsel_telp",
+  "sku": "TSELT1",
+  "nama_produk": "Paket Telkomsel Telpon - Nelpon 20 menit semua operator / 1 hari",
+  "harga": 6000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "telkomsel_telp",
+  "sku": "TSELT2",
+  "nama_produk": "Paket Telkomsel Telpon - Nelpon 100 menit / 3 hari",
+  "harga": 16000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "telkomsel_telp",
+  "sku": "TSELT3",
+  "nama_produk": "Paket Telkomsel Telpon - Nelpon 300 menit / 7 hari",
+  "harga": 31000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "telkomsel_telp",
+  "sku": "TSELT4",
+  "nama_produk": "Paket Telkomsel Telpon - Nelpon sepuasnya sesama / 30 hari",
+  "harga": 56000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "indosat_telp",
+  "sku": "ISATT1",
+  "nama_produk": "Paket Indosat Telpon - Nelpon 50 menit / 3 hari",
+  "harga": 11000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "indosat_telp",
+  "sku": "ISATT2",
+  "nama_produk": "Paket Indosat Telpon - Nelpon 150 menit / 7 hari",
+  "harga": 21000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "indosat_telp",
+  "sku": "ISATT3",
+  "nama_produk": "Paket Indosat Telpon - Nelpon sepuasnya sesama / 30 hari",
+  "harga": 46000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "xl_telp",
+  "sku": "XLT1",
+  "nama_produk": "Paket XL Telpon - Nelpon 60 menit AnyNet / 3 hari",
+  "harga": 13000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "xl_telp",
+  "sku": "XLT2",
+  "nama_produk": "Paket XL Telpon - Nelpon 200 menit AnyNet / 7 hari",
+  "harga": 26000
+ },
+ {
+  "kategori": "telpon",
+  "provider": "xl_telp",
+  "sku": "XLT3",
+  "nama_produk": "Paket XL Telpon - Nelpon sepuasnya sesama / 30 hari",
+  "harga": 51000
+ },
+ {
+  "kategori": "sms",
+  "provider": "telkomsel_sms",
+  "sku": "TSELS1",
+  "nama_produk": "Paket Telkomsel SMS - 50 SMS semua operator / 1 hari",
+  "harga": 4000
+ },
+ {
+  "kategori": "sms",
+  "provider": "telkomsel_sms",
+  "sku": "TSELS2",
+  "nama_produk": "Paket Telkomsel SMS - 200 SMS / 3 hari",
+  "harga": 9000
+ },
+ {
+  "kategori": "sms",
+  "provider": "telkomsel_sms",
+  "sku": "TSELS3",
+  "nama_produk": "Paket Telkomsel SMS - 1000 SMS / 7 hari",
+  "harga": 19000
+ },
+ {
+  "kategori": "sms",
+  "provider": "indosat_sms",
+  "sku": "ISATS1",
+  "nama_produk": "Paket Indosat SMS - 100 SMS / 3 hari",
+  "harga": 8000
+ },
+ {
+  "kategori": "sms",
+  "provider": "indosat_sms",
+  "sku": "ISATS2",
+  "nama_produk": "Paket Indosat SMS - 500 SMS / 7 hari",
+  "harga": 15000
+ },
+ {
+  "kategori": "sms",
+  "provider": "indosat_sms",
+  "sku": "ISATS3",
+  "nama_produk": "Paket Indosat SMS - SMS sepuasnya sesama / 30 hari",
+  "harga": 25000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA10",
+  "nama_produk": "Top Up DANA 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA20",
+  "nama_produk": "Top Up DANA 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA25",
+  "nama_produk": "Top Up DANA 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA50",
+  "nama_produk": "Top Up DANA 50.000",
+  "harga": 52000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA75",
+  "nama_produk": "Top Up DANA 75.000",
+  "harga": 77000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA100",
+  "nama_produk": "Top Up DANA 100.000",
+  "harga": 102000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA150",
+  "nama_produk": "Top Up DANA 150.000",
+  "harga": 152500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA200",
+  "nama_produk": "Top Up DANA 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA300",
+  "nama_produk": "Top Up DANA 300.000",
+  "harga": 302500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "dana",
+  "sku": "DANA500",
+  "nama_produk": "Top Up DANA 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO10",
+  "nama_produk": "Top Up OVO 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO20",
+  "nama_produk": "Top Up OVO 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO25",
+  "nama_produk": "Top Up OVO 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO50",
+  "nama_produk": "Top Up OVO 50.000",
+  "harga": 52000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO75",
+  "nama_produk": "Top Up OVO 75.000",
+  "harga": 77000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO100",
+  "nama_produk": "Top Up OVO 100.000",
+  "harga": 102000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO150",
+  "nama_produk": "Top Up OVO 150.000",
+  "harga": 152500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO200",
+  "nama_produk": "Top Up OVO 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO300",
+  "nama_produk": "Top Up OVO 300.000",
+  "harga": 302500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "ovo",
+  "sku": "OVO500",
+  "nama_produk": "Top Up OVO 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY10",
+  "nama_produk": "Top Up GoPay 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY20",
+  "nama_produk": "Top Up GoPay 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY25",
+  "nama_produk": "Top Up GoPay 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY50",
+  "nama_produk": "Top Up GoPay 50.000",
+  "harga": 52000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY75",
+  "nama_produk": "Top Up GoPay 75.000",
+  "harga": 77000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY100",
+  "nama_produk": "Top Up GoPay 100.000",
+  "harga": 102000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY150",
+  "nama_produk": "Top Up GoPay 150.000",
+  "harga": 152500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY200",
+  "nama_produk": "Top Up GoPay 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY300",
+  "nama_produk": "Top Up GoPay 300.000",
+  "harga": 302500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "gopay",
+  "sku": "GOPAY500",
+  "nama_produk": "Top Up GoPay 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM10",
+  "nama_produk": "Top Up Maxim 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM20",
+  "nama_produk": "Top Up Maxim 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM25",
+  "nama_produk": "Top Up Maxim 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM50",
+  "nama_produk": "Top Up Maxim 50.000",
+  "harga": 52000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM75",
+  "nama_produk": "Top Up Maxim 75.000",
+  "harga": 77000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM100",
+  "nama_produk": "Top Up Maxim 100.000",
+  "harga": 102000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM150",
+  "nama_produk": "Top Up Maxim 150.000",
+  "harga": 152500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM200",
+  "nama_produk": "Top Up Maxim 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM300",
+  "nama_produk": "Top Up Maxim 300.000",
+  "harga": 302500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "maxim",
+  "sku": "MAXIM500",
+  "nama_produk": "Top Up Maxim 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY10",
+  "nama_produk": "Top Up ShopeePay 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY20",
+  "nama_produk": "Top Up ShopeePay 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY25",
+  "nama_produk": "Top Up ShopeePay 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY50",
+  "nama_produk": "Top Up ShopeePay 50.000",
+  "harga": 52000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY75",
+  "nama_produk": "Top Up ShopeePay 75.000",
+  "harga": 77000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY100",
+  "nama_produk": "Top Up ShopeePay 100.000",
+  "harga": 102000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY150",
+  "nama_produk": "Top Up ShopeePay 150.000",
+  "harga": 152500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY200",
+  "nama_produk": "Top Up ShopeePay 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY300",
+  "nama_produk": "Top Up ShopeePay 300.000",
+  "harga": 302500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "shopeepay",
+  "sku": "SPAY500",
+  "nama_produk": "Top Up ShopeePay 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA10",
+  "nama_produk": "Top Up LinkAja 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA20",
+  "nama_produk": "Top Up LinkAja 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA25",
+  "nama_produk": "Top Up LinkAja 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA50",
+  "nama_produk": "Top Up LinkAja 50.000",
+  "harga": 52000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA75",
+  "nama_produk": "Top Up LinkAja 75.000",
+  "harga": 77000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA100",
+  "nama_produk": "Top Up LinkAja 100.000",
+  "harga": 102000
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA150",
+  "nama_produk": "Top Up LinkAja 150.000",
+  "harga": 152500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA200",
+  "nama_produk": "Top Up LinkAja 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA300",
+  "nama_produk": "Top Up LinkAja 300.000",
+  "harga": 302500
+ },
+ {
+  "kategori": "ewallet",
+  "provider": "linkaja",
+  "sku": "LINKAJA500",
+  "nama_produk": "Top Up LinkAja 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "kvision",
+  "sku": "KVIS1",
+  "nama_produk": "K-Vision - Paket Cling 7 hari",
+  "harga": 20000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "kvision",
+  "sku": "KVIS2",
+  "nama_produk": "K-Vision - Paket Cling 30 hari",
+  "harga": 50000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "kvision",
+  "sku": "KVIS3",
+  "nama_produk": "K-Vision - Paket All Channel 30 hari",
+  "harga": 120000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "nexmedia",
+  "sku": "NEX1",
+  "nama_produk": "Nex Parabola - Paket Basic 7 hari",
+  "harga": 25000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "nexmedia",
+  "sku": "NEX2",
+  "nama_produk": "Nex Parabola - Paket Basic 30 hari",
+  "harga": 65000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "nexmedia",
+  "sku": "NEX3",
+  "nama_produk": "Nex Parabola - Paket Premium 30 hari",
+  "harga": 125000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "transvision",
+  "sku": "TRANSV1",
+  "nama_produk": "Transvision - Paket Nonton 7 hari",
+  "harga": 25000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "transvision",
+  "sku": "TRANSV2",
+  "nama_produk": "Transvision - Paket Nonton 30 hari",
+  "harga": 70000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "transvision",
+  "sku": "TRANSV3",
+  "nama_produk": "Transvision - Paket Diamond 30 hari",
+  "harga": 150000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "matrix",
+  "sku": "MATRIX1",
+  "nama_produk": "Matrix Garuda - Paket Garuda 7 hari",
+  "harga": 20000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "matrix",
+  "sku": "MATRIX2",
+  "nama_produk": "Matrix Garuda - Paket Garuda 30 hari",
+  "harga": 55000
+ },
+ {
+  "kategori": "tv_berbayar",
+  "provider": "matrix",
+  "sku": "MATRIX3",
+  "nama_produk": "Matrix Garuda - Paket Garuda Premium 30 hari",
+  "harga": 110000
+ },
+ {
+  "kategori": "token_pln",
+  "provider": "pln",
+  "sku": "PLN20",
+  "nama_produk": "Token PLN 20.000",
+  "harga": 22500
+ },
+ {
+  "kategori": "token_pln",
+  "provider": "pln",
+  "sku": "PLN50",
+  "nama_produk": "Token PLN 50.000",
+  "harga": 52500
+ },
+ {
+  "kategori": "token_pln",
+  "provider": "pln",
+  "sku": "PLN100",
+  "nama_produk": "Token PLN 100.000",
+  "harga": 102500
+ },
+ {
+  "kategori": "token_pln",
+  "provider": "pln",
+  "sku": "PLN200",
+  "nama_produk": "Token PLN 200.000",
+  "harga": 202500
+ },
+ {
+  "kategori": "token_pln",
+  "provider": "pln",
+  "sku": "PLN500",
+  "nama_produk": "Token PLN 500.000",
+  "harga": 502500
+ },
+ {
+  "kategori": "token_pln",
+  "provider": "pln",
+  "sku": "PLN1000",
+  "nama_produk": "Token PLN 1000.000",
+  "harga": 1002500
+ },
+ {
+  "kategori": "masa_aktif",
+  "provider": "all",
+  "sku": "AKTIF7",
+  "nama_produk": "Perpanjang Masa Aktif 7 Hari (Semua Operator)",
+  "harga": 6000
+ },
+ {
+  "kategori": "masa_aktif",
+  "provider": "all",
+  "sku": "AKTIF14",
+  "nama_produk": "Perpanjang Masa Aktif 14 Hari (Semua Operator)",
+  "harga": 11000
+ },
+ {
+  "kategori": "masa_aktif",
+  "provider": "all",
+  "sku": "AKTIF30",
+  "nama_produk": "Perpanjang Masa Aktif 30 Hari (Semua Operator)",
+  "harga": 16000
+ },
+ {
+  "kategori": "masa_aktif",
+  "provider": "all",
+  "sku": "AKTIF90",
+  "nama_produk": "Perpanjang Masa Aktif 90 Hari (Semua Operator)",
+  "harga": 36000
+ },
+ {
+  "kategori": "masa_aktif",
+  "provider": "all",
+  "sku": "AKTIF180",
+  "nama_produk": "Perpanjang Masa Aktif 180 Hari (Semua Operator)",
+  "harga": 66000
+ },
+ {
+  "kategori": "masa_aktif",
+  "provider": "all",
+  "sku": "AKTIF360",
+  "nama_produk": "Perpanjang Masa Aktif 360 Hari (Semua Operator)",
+  "harga": 116000
+ },
+ {
+  "kategori": "info_kartu",
+  "provider": "all",
+  "sku": "INFOKARTU1",
+  "nama_produk": "Cek Info Kartu Prabayar (Nomor, Masa Aktif, Sisa Pulsa)",
+  "harga": 1000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTSEL1",
+  "nama_produk": "Voucher Internet Telkomsel 1GB",
+  "harga": 12000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTSEL3",
+  "nama_produk": "Voucher Internet Telkomsel 3GB",
+  "harga": 27000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTSEL5",
+  "nama_produk": "Voucher Internet Telkomsel 5GB",
+  "harga": 37000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTSEL10",
+  "nama_produk": "Voucher Internet Telkomsel 10GB",
+  "harga": 62000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCXL1",
+  "nama_produk": "Voucher Internet XL 1GB",
+  "harga": 12000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCXL3",
+  "nama_produk": "Voucher Internet XL 3GB",
+  "harga": 27000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCXL5",
+  "nama_produk": "Voucher Internet XL 5GB",
+  "harga": 37000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCXL10",
+  "nama_produk": "Voucher Internet XL 10GB",
+  "harga": 62000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCAXIS1",
+  "nama_produk": "Voucher Internet Axis 1GB",
+  "harga": 12000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCAXIS3",
+  "nama_produk": "Voucher Internet Axis 3GB",
+  "harga": 27000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCAXIS5",
+  "nama_produk": "Voucher Internet Axis 5GB",
+  "harga": 37000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCAXIS10",
+  "nama_produk": "Voucher Internet Axis 10GB",
+  "harga": 62000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCISAT1",
+  "nama_produk": "Voucher Internet Indosat 1GB",
+  "harga": 12000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCISAT3",
+  "nama_produk": "Voucher Internet Indosat 3GB",
+  "harga": 27000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCISAT5",
+  "nama_produk": "Voucher Internet Indosat 5GB",
+  "harga": 37000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCISAT10",
+  "nama_produk": "Voucher Internet Indosat 10GB",
+  "harga": 62000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTRI1",
+  "nama_produk": "Voucher Internet Tri 1GB",
+  "harga": 12000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTRI3",
+  "nama_produk": "Voucher Internet Tri 3GB",
+  "harga": 27000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTRI5",
+  "nama_produk": "Voucher Internet Tri 5GB",
+  "harga": 37000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCTRI10",
+  "nama_produk": "Voucher Internet Tri 10GB",
+  "harga": 62000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCSF1",
+  "nama_produk": "Voucher Internet Smartfren 1GB",
+  "harga": 12000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCSF3",
+  "nama_produk": "Voucher Internet Smartfren 3GB",
+  "harga": 27000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCSF5",
+  "nama_produk": "Voucher Internet Smartfren 5GB",
+  "harga": 37000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "internet",
+  "sku": "VCSF10",
+  "nama_produk": "Voucher Internet Smartfren 10GB",
+  "harga": 62000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "redeem",
+  "sku": "REDEEM1",
+  "nama_produk": "Redeem Voucher Gosok Fisik (Semua Operator)",
+  "harga": 1000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "status",
+  "sku": "CEKVCR1",
+  "nama_produk": "Cek Status Voucher (Sudah Terpakai / Belum)",
+  "harga": 1000
+ },
+ {
+  "kategori": "voucher",
+  "provider": "aktivasi",
+  "sku": "AKTVCR1",
+  "nama_produk": "Aktivasi Voucher Internet ke Nomor Tujuan",
+  "harga": 1500
+ },
+ {
+  "kategori": "perdana",
+  "provider": "inject",
+  "sku": "INJECT1",
+  "nama_produk": "Perdana + Kuota 5GB",
+  "harga": 30000
+ },
+ {
+  "kategori": "perdana",
+  "provider": "inject",
+  "sku": "INJECT2",
+  "nama_produk": "Perdana + Kuota 12GB",
+  "harga": 50000
+ },
+ {
+  "kategori": "perdana",
+  "provider": "inject",
+  "sku": "INJECT3",
+  "nama_produk": "Perdana + Kuota 30GB",
+  "harga": 85000
+ },
+ {
+  "kategori": "perdana",
+  "provider": "inject",
+  "sku": "INJECT4",
+  "nama_produk": "Inject Kuota Perdana 5GB",
+  "harga": 25000
+ },
+ {
+  "kategori": "perdana",
+  "provider": "inject",
+  "sku": "INJECT5",
+  "nama_produk": "Inject Kuota Perdana 15GB",
+  "harga": 55000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML3",
+  "nama_produk": "Mobile Legends 3 Diamond",
+  "harga": 1500
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML12",
+  "nama_produk": "Mobile Legends 12 Diamond",
+  "harga": 4000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML28",
+  "nama_produk": "Mobile Legends 28 Diamond",
+  "harga": 8500
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML36",
+  "nama_produk": "Mobile Legends 36 Diamond",
+  "harga": 11000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML59",
+  "nama_produk": "Mobile Legends 59 Diamond",
+  "harga": 17500
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML86",
+  "nama_produk": "Mobile Legends 86 Diamond",
+  "harga": 25000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML172",
+  "nama_produk": "Mobile Legends 172 Diamond",
+  "harga": 49500
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML257",
+  "nama_produk": "Mobile Legends 257 Diamond",
+  "harga": 73500
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML344",
+  "nama_produk": "Mobile Legends 344 Diamond",
+  "harga": 98500
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML514",
+  "nama_produk": "Mobile Legends 514 Diamond",
+  "harga": 147000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML706",
+  "nama_produk": "Mobile Legends 706 Diamond",
+  "harga": 201000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML1050",
+  "nama_produk": "Mobile Legends 1050 Diamond",
+  "harga": 293000
+ },
+ {
+  "kategori": "game",
+  "provider": "ml",
+  "sku": "ML2195",
+  "nama_produk": "Mobile Legends 2195 Diamond",
+  "harga": 599000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF5",
+  "nama_produk": "Free Fire 5 Diamond",
+  "harga": 1000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF12",
+  "nama_produk": "Free Fire 12 Diamond",
+  "harga": 2500
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF50",
+  "nama_produk": "Free Fire 50 Diamond",
+  "harga": 7000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF70",
+  "nama_produk": "Free Fire 70 Diamond",
+  "harga": 9500
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF140",
+  "nama_produk": "Free Fire 140 Diamond",
+  "harga": 19000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF355",
+  "nama_produk": "Free Fire 355 Diamond",
+  "harga": 47500
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF720",
+  "nama_produk": "Free Fire 720 Diamond",
+  "harga": 95000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FF2180",
+  "nama_produk": "Free Fire 2180 Diamond",
+  "harga": 289000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FFMM",
+  "nama_produk": "Free Fire Membership Mingguan",
+  "harga": 29000
+ },
+ {
+  "kategori": "game",
+  "provider": "ff",
+  "sku": "FFMB",
+  "nama_produk": "Free Fire Membership Bulanan",
+  "harga": 89000
+ },
+ {
+  "kategori": "game",
+  "provider": "pubgm",
+  "sku": "UC60",
+  "nama_produk": "PUBG Mobile 60 UC",
+  "harga": 15000
+ },
+ {
+  "kategori": "game",
+  "provider": "pubgm",
+  "sku": "UC325",
+  "nama_produk": "PUBG Mobile 325 UC",
+  "harga": 76000
+ },
+ {
+  "kategori": "game",
+  "provider": "pubgm",
+  "sku": "UC660",
+  "nama_produk": "PUBG Mobile 660 UC",
+  "harga": 152000
+ },
+ {
+  "kategori": "game",
+  "provider": "pubgm",
+  "sku": "UC1800",
+  "nama_produk": "PUBG Mobile 1800 UC",
+  "harga": 415000
+ },
+ {
+  "kategori": "game",
+  "provider": "pubgm",
+  "sku": "UC3850",
+  "nama_produk": "PUBG Mobile 3850 UC",
+  "harga": 855000
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "bpjs",
+  "sku": "BPJS1",
+  "nama_produk": "Bayar Tagihan BPJS Kesehatan (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "pgn",
+  "sku": "PGN1",
+  "nama_produk": "Bayar Tagihan Gas Negara PGN (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "pertagas",
+  "sku": "PTGAS1",
+  "nama_produk": "Bayar Tagihan Pertagas (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "pln_pasca",
+  "sku": "PLNPASCA1",
+  "nama_produk": "Bayar Tagihan PLN Pascabayar (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "indihome",
+  "sku": "INDIHOME1",
+  "nama_produk": "Bayar Tagihan Telkom / IndiHome (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "seluler",
+  "sku": "SELULER1",
+  "nama_produk": "Bayar Tagihan Seluler Pascabayar (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "finance",
+  "sku": "FINANCE1",
+  "nama_produk": "Bayar Cicilan Finance / Multifinance (admin, nominal sesuai tagihan)",
+  "harga": 4000
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "internet",
+  "sku": "INETBULAN1",
+  "nama_produk": "Bayar Internet Bulanan (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "pdam",
+  "sku": "PDAM1",
+  "nama_produk": "Bayar Tagihan PDAM (admin, nominal sesuai tagihan)",
+  "harga": 2500
+ },
+ {
+  "kategori": "tagihan",
+  "provider": "token_pertagas",
+  "sku": "TOKPTGAS1",
+  "nama_produk": "Token Pertagas (admin, nominal sesuai token)",
+  "harga": 2500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH10",
+  "nama_produk": "Top Up BNI TapCash 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH20",
+  "nama_produk": "Top Up BNI TapCash 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH25",
+  "nama_produk": "Top Up BNI TapCash 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH50",
+  "nama_produk": "Top Up BNI TapCash 50.000",
+  "harga": 51500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH100",
+  "nama_produk": "Top Up BNI TapCash 100.000",
+  "harga": 101500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH150",
+  "nama_produk": "Top Up BNI TapCash 150.000",
+  "harga": 151500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH200",
+  "nama_produk": "Top Up BNI TapCash 200.000",
+  "harga": 201500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH300",
+  "nama_produk": "Top Up BNI TapCash 300.000",
+  "harga": 301500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "tapcash",
+  "sku": "TAPCASH500",
+  "nama_produk": "Top Up BNI TapCash 500.000",
+  "harga": 501500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI10",
+  "nama_produk": "Top Up BRI Brizzi 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI20",
+  "nama_produk": "Top Up BRI Brizzi 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI25",
+  "nama_produk": "Top Up BRI Brizzi 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI50",
+  "nama_produk": "Top Up BRI Brizzi 50.000",
+  "harga": 51500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI100",
+  "nama_produk": "Top Up BRI Brizzi 100.000",
+  "harga": 101500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI150",
+  "nama_produk": "Top Up BRI Brizzi 150.000",
+  "harga": 151500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI200",
+  "nama_produk": "Top Up BRI Brizzi 200.000",
+  "harga": 201500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI300",
+  "nama_produk": "Top Up BRI Brizzi 300.000",
+  "harga": 301500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "brizzi",
+  "sku": "BRIZZI500",
+  "nama_produk": "Top Up BRI Brizzi 500.000",
+  "harga": 501500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY10",
+  "nama_produk": "Top Up Mandiri E-Money 10.000",
+  "harga": 11500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY20",
+  "nama_produk": "Top Up Mandiri E-Money 20.000",
+  "harga": 21500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY25",
+  "nama_produk": "Top Up Mandiri E-Money 25.000",
+  "harga": 26500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY50",
+  "nama_produk": "Top Up Mandiri E-Money 50.000",
+  "harga": 51500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY100",
+  "nama_produk": "Top Up Mandiri E-Money 100.000",
+  "harga": 101500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY150",
+  "nama_produk": "Top Up Mandiri E-Money 150.000",
+  "harga": 151500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY200",
+  "nama_produk": "Top Up Mandiri E-Money 200.000",
+  "harga": 201500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY300",
+  "nama_produk": "Top Up Mandiri E-Money 300.000",
+  "harga": 301500
+ },
+ {
+  "kategori": "emoney",
+  "provider": "mandiri",
+  "sku": "EMONEY500",
+  "nama_produk": "Top Up Mandiri E-Money 500.000",
+  "harga": 501500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "mtix",
+  "sku": "MTIX50",
+  "nama_produk": "Top Up Saldo M-Tix XXI 50.000",
+  "harga": 51500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "mtix",
+  "sku": "MTIX100",
+  "nama_produk": "Top Up Saldo M-Tix XXI 100.000",
+  "harga": 101500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "mtix",
+  "sku": "MTIX150",
+  "nama_produk": "Top Up Saldo M-Tix XXI 150.000",
+  "harga": 151500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "mtix",
+  "sku": "MTIX200",
+  "nama_produk": "Top Up Saldo M-Tix XXI 200.000",
+  "harga": 201500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "mtix",
+  "sku": "MTIX300",
+  "nama_produk": "Top Up Saldo M-Tix XXI 300.000",
+  "harga": 301500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "mtix",
+  "sku": "MTIX500",
+  "nama_produk": "Top Up Saldo M-Tix XXI 500.000",
+  "harga": 501500
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "wifiid",
+  "sku": "WIFIID1",
+  "nama_produk": "Wifi ID Voucher 6 Jam",
+  "harga": 6000
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "wifiid",
+  "sku": "WIFIID2",
+  "nama_produk": "Wifi ID Voucher 12 Jam",
+  "harga": 11000
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "wifiid",
+  "sku": "WIFIID3",
+  "nama_produk": "Wifi ID Voucher 24 Jam",
+  "harga": 16000
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "wifiid",
+  "sku": "WIFIID4",
+  "nama_produk": "Wifi ID Voucher 7 Hari",
+  "harga": 51000
+ },
+ {
+  "kategori": "hiburan",
+  "provider": "wifiid",
+  "sku": "WIFIID5",
+  "nama_produk": "Wifi ID Voucher 30 Hari",
+  "harga": 101000
+ }
+]
