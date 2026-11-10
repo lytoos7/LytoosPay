@@ -224,6 +224,42 @@
         @keyframes pulseLogo { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
         .hide-splash { opacity: 0; visibility: hidden; }
 
+        /* KOMPONEN UI DALAM APLIKASI (pengganti alert/confirm bawaan browser) */
+        .lp-overlay { position: fixed; inset: 0; background: rgba(24, 14, 48, 0.55); z-index: 300; display: flex; align-items: flex-end; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s; }
+        .lp-overlay.show { opacity: 1; visibility: visible; }
+        .lp-sheet { width: 100%; max-width: 450px; background: #fff; border-radius: 22px 22px 0 0; padding: 12px 22px 26px; transform: translateY(40px); transition: transform 0.25s ease; max-height: 88vh; overflow-y: auto; }
+        .lp-overlay.show .lp-sheet { transform: translateY(0); }
+        .lp-handle { width: 44px; height: 5px; border-radius: 3px; background: #e2e8f0; margin: 2px auto 16px; }
+        .lp-title { font-size: 17px; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; }
+        .lp-msg { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; }
+        .lp-row { display: flex; justify-content: space-between; gap: 14px; font-size: 13px; padding: 9px 0; border-bottom: 1px dashed var(--border-color); }
+        .lp-row span { color: var(--text-muted); }
+        .lp-row b { color: var(--text-dark); text-align: right; }
+        .lp-total { border-bottom: none; border-top: 2px solid var(--border-color); margin-top: 4px; padding-top: 13px; font-size: 15px; }
+        .lp-total b { color: var(--primary); font-size: 17px; }
+        .lp-btn-primary { width: 100%; border: none; background: var(--primary); color: #fff; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 16px; transition: 0.15s; }
+        .lp-btn-primary:active { transform: scale(0.98); background: #5a32a3; }
+        .lp-btn-ghost { width: 100%; border: none; background: transparent; color: var(--text-muted); padding: 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .lp-icon { width: 64px; height: 64px; border-radius: 50%; margin: 4px auto 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+        .lp-icon.info { background: var(--primary-light); color: var(--primary); }
+        .lp-icon.error { background: #fdecec; color: var(--danger); }
+        .lp-icon.success { background: #e6f7ec; color: var(--success); }
+        #lp-processing { position: fixed; inset: 0; background: rgba(24, 14, 48, 0.55); z-index: 350; display: none; align-items: center; justify-content: center; padding: 24px; }
+        #lp-processing.show { display: flex; }
+        .lp-proc-card { background: #fff; border-radius: 18px; padding: 28px 26px; text-align: center; width: 100%; max-width: 300px; box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+        .lp-spinner { width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%; border: 5px solid var(--primary-light); border-top-color: var(--primary); animation: lpSpin 0.8s linear infinite; }
+        @keyframes lpSpin { to { transform: rotate(360deg); } }
+        .lp-proc-text { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+        .lp-proc-sub { font-size: 11px; color: var(--text-muted); margin-top: 5px; }
+        .lp-toast { position: fixed; left: 50%; bottom: 84px; transform: translate(-50%, 20px); width: calc(100% - 40px); max-width: 410px; background: #2d3748; color: #fff; border-radius: 12px; padding: 13px 16px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 10px; z-index: 400; opacity: 0; visibility: hidden; transition: 0.3s ease; box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+        .lp-toast.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+        .lp-toast i { font-size: 17px; }
+        .lp-toast.success i { color: #48bb78; }
+        .lp-toast.error i { color: #fc8181; }
+        .lp-toast.info i { color: #90cdf4; }
+        .lp-shake { animation: lpShake 0.4s ease; border-color: var(--danger) !important; }
+        @keyframes lpShake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
         /* CETAK STRUK: hanya struk yang tercetak */
         @media print {
             body { background: #ffffff; }
@@ -290,8 +326,8 @@
                     <span class="balance-amount" id="home-saldo">Rp 0</span>
                 </div>
                 <div style="display:flex; gap:8px;">
-                    <button class="w-btn" onclick="alert('Silakan transfer ke rekening admin untuk Top Up')"><i class="fa-solid fa-wallet"></i> Top Up</button>
-                    <button class="w-btn" onclick="alert('QRIS Siap Dibuat!')"><i class="fa-solid fa-qrcode"></i> QRIS</button>
+                    <button class="w-btn" onclick="lpTopUp()"><i class="fa-solid fa-wallet"></i> Top Up</button>
+                    <button class="w-btn" onclick="lpQris()"><i class="fa-solid fa-qrcode"></i> QRIS</button>
                 </div>
             </div>
         </div>
@@ -387,13 +423,13 @@
         <!-- 1. BAGIAN MENU -->
         <div id="psec-menu" class="p-section active">
             <div class="sub-list" style="padding:0;">
-                <div class="sub-item-card" onclick="alert('Pemberitahuan Kosong')">
+                <div class="sub-item-card" onclick="lpToast('Belum ada pemberitahuan baru.', 'info')">
                     <div class="sub-item-left"><div class="sub-item-icon" style="background:var(--primary-light); color:var(--primary)"><i class="fa-solid fa-bell"></i></div> <h4>Pemberitahuan</h4></div> <i class="fa-solid fa-chevron-right" style="color:var(--border-color)"></i>
                 </div>
-                <div class="sub-item-card" onclick="alert('Produk Favorit')">
+                <div class="sub-item-card" onclick="lpToast('Belum ada produk favorit.', 'info')">
                     <div class="sub-item-left"><div class="sub-item-icon" style="background:#e3f2fd; color:#0d6efd"><i class="fa-solid fa-heart"></i></div> <h4>Produk Favorit</h4></div> <i class="fa-solid fa-chevron-right" style="color:var(--border-color)"></i>
                 </div>
-                <div class="sub-item-card" onclick="alert('Membuka WA CS: @LytoosPay_CS')">
+                <div class="sub-item-card" onclick="lpInfo({fa:'fa-brands fa-whatsapp', title:'Hubungi CS', message:'Customer service LytoosPay: @LytoosPay_CS. Sampaikan nomor akun dan kendalamu, admin akan membantu.', buttonText:'Tutup'})">
                     <div class="sub-item-left"><div class="sub-item-icon" style="background:#e8f5e9; color:#28a745"><i class="fa-brands fa-whatsapp"></i></div> <h4>Hubungi CS</h4></div> <i class="fa-solid fa-chevron-right" style="color:var(--border-color)"></i>
                 </div>
                 <!-- Tombol Keluar Disembunyikan di sini -->
@@ -521,6 +557,19 @@
         <div class="nav-tab" id="btn-tab-riwayat" onclick="navigasiTab('riwayat')"><i class="fa-solid fa-clock-rotate-left"></i><span>Riwayat</span></div>
         <div class="nav-tab" id="btn-tab-profil" onclick="navigasiTab('profil')"><i class="fa-solid fa-user"></i><span>Profil</span></div>
     </div>
+
+    <!-- KOMPONEN UI DALAM APLIKASI -->
+    <div id="lp-overlay" class="lp-overlay" onclick="if(event.target===this) lpCloseSheet(false)">
+        <div class="lp-sheet" id="lp-sheet"></div>
+    </div>
+    <div id="lp-processing">
+        <div class="lp-proc-card">
+            <div class="lp-spinner"></div>
+            <div class="lp-proc-text" id="lp-processing-text">Memproses transaksi...</div>
+            <div class="lp-proc-sub">Mohon tunggu, jangan tutup halaman ini</div>
+        </div>
+    </div>
+    <div id="lp-toast" class="lp-toast"></div>
 </div>
 
 <!-- SDK FIREBASE INTI DAN AUTHENTICATION -->
@@ -657,6 +706,64 @@
         }
     });
 
+    // ==========================================
+    // KOMPONEN UI DALAM APLIKASI (pengganti alert/confirm browser)
+    // ==========================================
+    let _lpResolve = null;
+    function lpOpenSheet(html) {
+        document.getElementById('lp-sheet').innerHTML = html;
+        document.getElementById('lp-overlay').classList.add('show');
+    }
+    function lpCloseSheet(val) {
+        document.getElementById('lp-overlay').classList.remove('show');
+        if (_lpResolve) { const r = _lpResolve; _lpResolve = null; r(val); }
+    }
+    function lpConfirm(opts) {
+        return new Promise((resolve) => {
+            _lpResolve = resolve;
+            const rows = (opts.rows || []).map(r => `<div class="lp-row"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("");
+            lpOpenSheet(`
+                <div class="lp-handle"></div>
+                <h3 class="lp-title">${opts.title || "Konfirmasi"}</h3>
+                ${opts.message ? `<p class="lp-msg">${opts.message}</p>` : ""}
+                ${rows}
+                ${opts.total !== undefined ? `<div class="lp-row lp-total"><span>Total Bayar</span><b>Rp ${Number(opts.total).toLocaleString('id-ID')}</b></div>` : ""}
+                <button class="lp-btn-primary" onclick="lpCloseSheet(true)">${opts.confirmText || "Ya, Lanjutkan"}</button>
+                <button class="lp-btn-ghost" onclick="lpCloseSheet(false)">Batal</button>
+            `);
+        });
+    }
+    function lpInfo(opts) {
+        return new Promise((resolve) => {
+            _lpResolve = resolve;
+            lpOpenSheet(`
+                <div class="lp-handle"></div>
+                <div class="lp-icon ${opts.icon || 'info'}"><i class="fa-solid ${opts.fa || 'fa-circle-info'}"></i></div>
+                <h3 class="lp-title" style="text-align:center;">${opts.title || ""}</h3>
+                <p class="lp-msg" style="text-align:center;">${opts.message || ""}</p>
+                <button class="lp-btn-primary" onclick="lpCloseSheet(true)">${opts.buttonText || "Tutup"}</button>
+            `);
+        });
+    }
+    function lpToast(msg, type) {
+        const t = document.getElementById('lp-toast');
+        const icons = { success: 'fa-circle-check', error: 'fa-circle-exclamation', info: 'fa-circle-info' };
+        t.innerHTML = `<i class="fa-solid ${icons[type] || icons.info}"></i><span>${msg}</span>`;
+        t.className = 'lp-toast show ' + (type || 'info');
+        clearTimeout(window._lpToastTimer);
+        window._lpToastTimer = setTimeout(() => { t.classList.remove('show'); }, 3200);
+    }
+    function lpProcessing(on, text) {
+        if (text) document.getElementById('lp-processing-text').innerText = text;
+        document.getElementById('lp-processing').classList.toggle('show', !!on);
+    }
+    function lpTopUp() {
+        lpInfo({ fa: 'fa-wallet', title: 'Top Up Saldo', message: 'Untuk mengisi saldo, transfer ke rekening admin LytoosPay, lalu kirim bukti transfer ke menu Hubungi CS agar saldo ditambahkan ke akunmu.', buttonText: 'Mengerti' });
+    }
+    function lpQris() {
+        lpInfo({ fa: 'fa-qrcode', title: 'QRIS', message: 'Pembayaran QRIS sedang disiapkan. Untuk saat ini gunakan Top Up manual lewat admin.', buttonText: 'Mengerti' });
+    }
+
     // Fitur Login
     function tampilFormHP() {
         document.getElementById('phone-login-box').style.display = 'block';
@@ -667,7 +774,7 @@
 
     function kirimOTP() {
         let nomor = document.getElementById('phone-number').value.trim();
-        if(!nomor) return alert("Masukkan nomor HP!");
+        if(!nomor) { lpToast("Masukkan nomor HP dulu.", "error"); return; }
 
         // Ubah 08 jadi +62 otomatis agar tidak error
         if (nomor.startsWith("0")) { nomor = "+62" + nomor.substring(1); } 
@@ -682,20 +789,20 @@
                 confirmationResultObj = res;
                 btnOtp.style.display = 'none';
                 document.getElementById('otp-area').style.display = 'block';
-                alert("Berhasil! OTP telah dikirim via SMS ke " + nomor);
+                lpToast("OTP terkirim via SMS ke " + nomor, "success");
             }).catch((err) => { 
                 btnOtp.innerText = "Kirim OTP";
                 btnOtp.disabled = false;
-                alert("Gagal mengirim OTP. Pastikan format nomor benar.");
+                lpInfo({icon:"error", fa:"fa-circle-exclamation", title:"OTP Gagal Terkirim", message:"Pastikan format nomor benar (contoh: 08123456789) lalu coba lagi.", buttonText:"Coba Lagi"});
                 if(window.recaptchaVerifier) { window.recaptchaVerifier.render().then(w => grecaptcha.reset(w)); }
             });
     }
 
     function verifikasiOTP() {
         const code = document.getElementById('otp-code').value.trim();
-        if (!confirmationResultObj) { alert("Minta kode OTP dulu lewat tombol Kirim OTP."); return; }
-        if (!code) { alert("Masukkan kode OTP!"); return; }
-        confirmationResultObj.confirm(code).catch(() => alert("Kode OTP Salah / Kadaluarsa!"));
+        if (!confirmationResultObj) { lpToast("Minta kode OTP dulu lewat tombol Kirim OTP.", "error"); return; }
+        if (!code) { lpToast("Masukkan kode OTP!", "error"); return; }
+        confirmationResultObj.confirm(code).catch(() => lpToast("Kode OTP salah atau sudah kedaluwarsa.", "error"));
     }
 
     // Simpan perubahan profil (lokal + Firestore users/{uid} bila memungkinkan)
@@ -711,7 +818,7 @@
             db.collection('users').doc(user.uid).set(profil, { merge: true })
               .catch(() => { /* tersimpan lokal saja bila Firestore menolak */ });
         }
-        alert("Perubahan profil tersimpan.");
+        lpToast("Perubahan profil tersimpan.", "success");
     }
 
     function muatProfilTersimpan() {
@@ -724,9 +831,9 @@
         } catch (e) {}
     }
 
-    function loginGoogle() { auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => alert("Gagal Login Google: " + e.message)); }
-    function loginFacebook() { auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).catch(e => alert("Gagal Login Facebook: " + e.message)); }
-    function logoutAkun() { if(confirm("Yakin ingin keluar dari LytoosPay?")) { auth.signOut(); } }
+    function loginGoogle() { auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => lpInfo({icon:"error", fa:"fa-circle-exclamation", title:"Login Google Gagal", message:e.message, buttonText:"Tutup"})); }
+    function loginFacebook() { auth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).catch(e => lpInfo({icon:"error", fa:"fa-circle-exclamation", title:"Login Facebook Gagal", message:e.message, buttonText:"Tutup"})); }
+    async function logoutAkun() { const ok = await lpConfirm({ title: "Keluar Akun", message: "Yakin ingin keluar dari LytoosPay?", confirmText: "Ya, Keluar" }); if (ok) auth.signOut(); }
 
     // BANNER SLIDER
     let slideIndex = 0;
@@ -849,20 +956,42 @@
         eksekusiPembelianOrder(produk.sku, produk.nama_produk, Number(produk.harga));
     }
 
-    function eksekusiPembelianOrder(sku, namaProduk, harga) {
-        let nomorTujuan = document.getElementById('global-input-tujuan').value.trim();
-        if(!nomorTujuan) { alert("Nomor HP / ID Target wajib dimasukkan!"); return; }
-        if(!confirm(`Konfirmasi Beli:\n${namaProduk}\nTujuan: ${nomorTujuan}\nHarga: Rp ${harga.toLocaleString('id-ID')}\n\nLanjutkan?`)) return;
+    let _sedangProses = false;
+    async function eksekusiPembelianOrder(sku, namaProduk, harga) {
+        if (_sedangProses) return;
+        const inputTujuan = document.getElementById('global-input-tujuan');
+        let nomorTujuan = inputTujuan.value.trim();
+        if (!nomorTujuan) {
+            lpToast("Nomor HP / ID Target wajib dimasukkan!", "error");
+            inputTujuan.classList.add('lp-shake');
+            inputTujuan.focus();
+            setTimeout(() => inputTujuan.classList.remove('lp-shake'), 500);
+            return;
+        }
+
+        const yakin = await lpConfirm({
+            title: "Konfirmasi Pembelian",
+            rows: [["Produk", namaProduk], ["Tujuan", nomorTujuan], ["SKU", sku]],
+            total: harga,
+            confirmText: "Bayar Sekarang"
+        });
+        if (!yakin) return;
 
         const LINK_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyawrjcfIRfr2Ch4WBIwhx2E-iUwG_Z3lcG79mjv574boopSURi_WgMsR3D26uYCZEY/exec";
-        alert("Transaksi Sedang Diproses...");
+        _sedangProses = true;
+        lpProcessing(true, "Menghubungi provider...");
 
-        fetch(LINK_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ sku: sku, tujuan: nomorTujuan }) })
-        .then(res => res.text())
-        .then(teks => {
+        try {
+            const res = await fetch(LINK_APPS_SCRIPT_URL, { method: "POST", body: JSON.stringify({ sku: sku, tujuan: nomorTujuan }) });
+            const teks = await res.text();
             let hasil;
             try { hasil = JSON.parse(teks); }
-            catch (e) { alert("Jawaban server tidak dapat dibaca. Transaksi TIDAK dicatat sebagai berhasil."); console.error("Jawaban server:", teks); return; }
+            catch (e) {
+                lpProcessing(false);
+                console.error("Jawaban server:", teks);
+                await lpInfo({ icon: "error", fa: "fa-circle-exclamation", title: "Jawaban Server Tidak Terbaca", message: "Transaksi TIDAK dicatat sebagai berhasil. Coba lagi beberapa saat, atau hubungi CS bila saldo terpotong.", buttonText: "Tutup" });
+                return;
+            }
 
             // Bentuk jawaban jembatan (Digiflazz via Apps Script): { data: { status, message, sn, ref_id, ... } }
             const data = (hasil && hasil.data) ? hasil.data : (hasil || {});
@@ -870,10 +999,11 @@
             const pesan = data.message || hasil.message || "";
             let txId = data.ref_id || ("LP" + new Date().getTime());
             let waktuStr = new Date().toLocaleString('id-ID');
+            lpProcessing(false);
 
             if (statusMentah.includes("gagal") || statusMentah === "failed" || statusMentah === "error") {
-                alert("TRANSAKSI GAGAL" + (pesan ? ": " + pesan : ""));
                 simpanRiwayatPenjualan(waktuStr, txId, namaProduk, nomorTujuan, harga, "GAGAL", data.sn || "-");
+                await lpInfo({ icon: "error", fa: "fa-circle-xmark", title: "Transaksi Gagal", message: (pesan ? pesan + "<br><br>" : "") + "Produk: " + namaProduk + "<br>Tujuan: " + nomorTujuan + "<br>ID: " + txId, buttonText: "Tutup" });
                 return;
             }
 
@@ -881,7 +1011,12 @@
             const snAsli = data.sn || data.serial_number || "-";
             bukaStrukKertas(waktuStr, txId, namaProduk, nomorTujuan, harga, snAsli, statusStruk);
             simpanRiwayatPenjualan(waktuStr, txId, namaProduk, nomorTujuan, harga, statusStruk, snAsli);
-        }).catch(err => { alert("Koneksi ke Jembatan Gagal: " + err); });
+        } catch (err) {
+            lpProcessing(false);
+            await lpInfo({ icon: "error", fa: "fa-triangle-exclamation", title: "Koneksi Bermasalah", message: "Gagal menghubungi server pembayaran. Periksa internetmu lalu coba lagi.", buttonText: "Tutup" });
+        } finally {
+            _sedangProses = false;
+        }
     }
 
     function bukaStrukKertas(waktu, id, produk, tujuan, harga, sn, status) {
@@ -910,9 +1045,9 @@
         if (navigator.share) {
             navigator.share({ title: "Struk LytoosPay", text: teksStruk }).catch(() => {});
         } else if (navigator.clipboard) {
-            navigator.clipboard.writeText(teksStruk).then(() => alert("Teks struk tersalin. Tempel untuk membagikannya."));
+            navigator.clipboard.writeText(teksStruk).then(() => lpToast("Teks struk tersalin. Tempel untuk membagikannya.", "success"));
         } else {
-            alert(teksStruk);
+            lpInfo({ fa: 'fa-receipt', title: 'Struk LytoosPay', message: teksStruk.replace(/\n/g, '<br>'), buttonText: 'Tutup' });
         }
     }
 
